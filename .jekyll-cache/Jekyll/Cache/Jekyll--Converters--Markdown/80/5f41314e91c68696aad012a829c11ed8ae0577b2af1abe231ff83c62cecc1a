@@ -1,0 +1,71 @@
+I"�<blockquote>
+  <p>安装Anaconda后经常需要更改jupyter notebook默认工作目录，趁这次疫情期间被关在家里，整理所得</p>
+
+  <p>电脑用户名:even</p>
+</blockquote>
+
+<h3 id="part01anaconda安装">part.01.anaconda安装</h3>
+<ul>
+  <li>下载安装</li>
+  <li>环境变量配置
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">#在安装完成anaconda后就应该首先配置环境变量
+</span>  <span class="n">C</span><span class="p">:</span>\<span class="n">ProgramData</span>\<span class="n">Anaconda3</span>\<span class="n">Scripts</span>
+  <span class="n">C</span><span class="p">:</span>\<span class="n">ProgramData</span>\<span class="n">Anaconda3</span>\<span class="n">Library</span>\<span class="nb">bin</span>
+</code></pre></div>    </div>
+  </li>
+  <li>验证安装成功与否
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">even</span><span class="o">&gt;</span><span class="n">conda</span> <span class="o">--</span><span class="n">version</span>
+  <span class="n">conda</span> <span class="mf">4.5.11</span>
+</code></pre></div>    </div>
+  </li>
+  <li>镜像设置
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="err">设置镜像网站可以加快下载速度。</span>
+
+  <span class="err">在命令行输入如下命令：</span>
+
+  <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">tuna</span><span class="o">.</span><span class="n">tsinghua</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span><span class="n">anaconda</span><span class="o">/</span><span class="n">pkgs</span><span class="o">/</span><span class="n">free</span><span class="o">/</span>
+
+  <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">show_channel_urls</span> <span class="n">yes</span>
+
+  <span class="err">在</span><span class="n">C</span><span class="err">盘下可找到一个名为</span><span class="o">.</span><span class="n">condarc</span><span class="err">的文件，打开发现已经添加了指定的镜像网站，当然也可以直接修改</span><span class="o">.</span><span class="n">condarc</span><span class="err">文件：</span>
+
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="part02jupyter-notebook更改默认路径">part.02.jupyter notebook更改默认路径</h3>
+<ul>
+  <li>
+    <p>新建新的工作目录<code class="highlighter-rouge">E:\pywd</code></p>
+
+    <p>在E盘新建文件夹”pywd”，路径<code class="highlighter-rouge">E:\pywd</code>，作为默认目录</p>
+  </li>
+  <li>
+    <p>生成配置文件<code class="highlighter-rouge">jupyter_notebook_config.py</code></p>
+
+    <p>cmd命令行中输入<code class="highlighter-rouge">jupyter notebook --generate-config</code>，可在<code class="highlighter-rouge">C:\Users\even\.jupyter</code>目录下生成<code class="highlighter-rouge">jupyter_notebook_config.py</code>。</p>
+  </li>
+  <li>
+    <p>修改工作目录</p>
+
+    <p>找到配置文件并打开</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  C:\Users\even\.jupyter\jupyter_notebook_config.py
+</code></pre></div>    </div>
+    <p>找到<code class="highlighter-rouge">c.NotebookApp.notebook_dir</code>填充新的工作目录</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">## The directory to use for notebooks and kernels.
+</span>  <span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">notebook_dir</span> <span class="o">=</span> <span class="s">'E:</span><span class="err">\</span><span class="s">pywd'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>环境变量添加
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">#在安装完成anaconda后就应该首先配置环境变量
+</span>  <span class="n">C</span><span class="p">:</span>\<span class="n">ProgramData</span>\<span class="n">Anaconda3</span>\<span class="n">Scripts</span>
+  <span class="n">C</span><span class="p">:</span>\<span class="n">ProgramData</span>\<span class="n">Anaconda3</span>\<span class="n">Library</span>\<span class="nb">bin</span>
+</code></pre></div>    </div>
+  </li>
+  <li>修改开始菜单中Jupyter Notebook的快捷方式(<code class="highlighter-rouge">最重要一步</code>)
+    <blockquote>
+      <p>操作流程（以win10为例）：程序→<code class="highlighter-rouge">Anaconda</code>→ <code class="highlighter-rouge">Jupyter Notebook</code>→ 右键→ 属性→ 快捷方式→ 去掉“目标”一项中后面的<code class="highlighter-rouge">"%USERPROFILE%"</code>。</p>
+    </blockquote>
+  </li>
+</ul>
+:ET

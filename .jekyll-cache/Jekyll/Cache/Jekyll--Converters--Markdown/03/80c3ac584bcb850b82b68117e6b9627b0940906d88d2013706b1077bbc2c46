@@ -1,0 +1,154 @@
+I"�5<h1 id="关于mtu的合理解释">关于MTU的合理解释</h1>
+
+<blockquote>
+  <p>dave的笔记文档：长期涉及底层网络数据的捕获，时常遇到切片数据包，所以有了这篇blog。</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Maximum Transmission Unit</code>，缩写<code class="highlighter-rouge">MTU</code>，中文名是：最大传输单元。
+<code class="highlighter-rouge">MTU</code>限制的是数据链路层的<code class="highlighter-rouge">payload</code>，也就是上层协议的大小，例如<code class="highlighter-rouge">IP</code>，<code class="highlighter-rouge">ICMP</code>等。</p>
+</blockquote>
+
+<h2 id="先放结论">先放结论</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1518</span><span class="err">这个值是考虑到传输效率以及传输时间而折中选择的一个值，并且由于目前网络链路中的节点</span>
+<span class="err">太多，其中某个节点的</span><span class="n">MTU</span><span class="err">值如果和别的节点不一样，就很容易带来拆包重组的问题，甚至会导致无</span>
+<span class="err">法发送。</span>
+</code></pre></div></div>
+
+<p>其实一个标准的以太网数据帧大小是：<code class="highlighter-rouge">1518</code>，头信息有<code class="highlighter-rouge">14</code>字节，尾部校验和<code class="highlighter-rouge">FCS</code>占了<code class="highlighter-rouge">4</code>字节，所以真正留给上层协议传输数据的大小就是：<code class="highlighter-rouge">1518 - 14 - 4 = 1500</code></p>
+
+<p>一个IP数据包的大小是：<code class="highlighter-rouge">65535</code>
+一个标准的以太网数据帧大小是：<code class="highlighter-rouge">1518</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MTU</span><span class="err">最小值被限制在</span><span class="mi">64</span>
+<span class="err">为什么是</span><span class="mi">64</span><span class="err">呢？</span>
+
+<span class="err">这个其实和以太网帧在半双工下的碰撞有关。</span>
+
+<span class="err">最早的以太网工作方式：载波多路复用</span><span class="o">/</span><span class="err">冲突检测（</span><span class="n">CSMA</span><span class="o">/</span><span class="n">CD</span><span class="err">），因为网络是共享的，即任何一个节点</span>
+<span class="err">发送数据之前，先要侦听线路上是否有数据在传输，如果有，需要等待，如果线路可用，才可以发送。</span>
+
+<span class="err">假设</span><span class="n">A</span><span class="err">发出第一个</span><span class="n">bit</span><span class="err">位，到达</span><span class="n">B</span><span class="err">，而</span><span class="n">B</span><span class="err">也正在传输第一个</span><span class="n">bit</span><span class="err">位，于是产生冲突，冲突信号得让</span><span class="n">A</span><span class="err">在完</span>
+<span class="err">成最后一个</span><span class="n">bit</span><span class="err">位之前到达</span><span class="n">A</span><span class="err">，这个一来一回的时间间隙</span><span class="n">slot</span> <span class="n">time</span><span class="err">是</span><span class="mf">57.6</span><span class="err">μ</span><span class="n">s</span><span class="err">。</span>
+
+<span class="err">在</span><span class="mi">10</span><span class="n">Mbps</span><span class="err">的网络中，在</span><span class="mf">57.6</span><span class="err">μ</span><span class="n">s</span><span class="err">的时间内，能够传输</span><span class="mi">576</span><span class="err">个</span><span class="n">bit</span><span class="err">，所以要求以太网帧最小长度为</span>
+<span class="mi">576</span><span class="err">个</span><span class="n">bits</span><span class="err">，</span><span class="o">==</span><span class="err">从而让最极端的碰撞都能够被检测到</span><span class="o">==</span><span class="err">。这个</span><span class="mi">576</span><span class="n">bit</span><span class="err">换算一下就是</span><span class="mi">72</span><span class="err">个字节，</span>
+<span class="err">去掉</span><span class="mi">8</span><span class="err">个字节的前导符和帧开始符，所以以太网帧的最小长度为</span><span class="mi">64</span><span class="err">字节。</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>OSI中的层</th>
+      <th style="text-align: center">功能</th>
+      <th style="text-align: right">TCP/IP协议族</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>应用层</td>
+      <td style="text-align: center">文件传输，电子邮件，文件服务，虚拟终端</td>
+      <td style="text-align: right">TFTP，HTTP，SNMP，FTP，SMTP，DNS，Telnet</td>
+    </tr>
+    <tr>
+      <td>表示层</td>
+      <td style="text-align: center">数据格式化，代码转换，数据加密</td>
+      <td style="text-align: right">没有协议</td>
+    </tr>
+    <tr>
+      <td>会话层</td>
+      <td style="text-align: center">解除或建立与别的接点的联系</td>
+      <td style="text-align: right">没有协议</td>
+    </tr>
+    <tr>
+      <td>传输层</td>
+      <td style="text-align: center">提供端对端的接口</td>
+      <td style="text-align: right">TCP，UDP</td>
+    </tr>
+    <tr>
+      <td>网络层</td>
+      <td style="text-align: center">为数据包选择路由</td>
+      <td style="text-align: right">IP，ICMP，RIP，OSPF，BGP，IGMP</td>
+    </tr>
+    <tr>
+      <td>数据链路层</td>
+      <td style="text-align: center">传输有地址的帧以及错误检测功能</td>
+      <td style="text-align: right">SLIP，CSLIP，PPP，ARP，RARP，MTU</td>
+    </tr>
+    <tr>
+      <td>物理层</td>
+      <td style="text-align: center">以二进制数据形式在物理媒体上传输数据</td>
+      <td style="text-align: right">ISO2110，IEEE802，IEEE802.2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ｗｉｎｄｏｗｓ查看设置-ｍｔｕ"><code class="highlighter-rouge">Ｗｉｎｄｏｗｓ</code>　查看/设置 <code class="highlighter-rouge">ＭＴＵ</code></h2>
+<h3 id="查看mtu">查看<code class="highlighter-rouge">MTU</code></h3>
+<blockquote>
+  <p>cmd命令提示符<code class="highlighter-rouge">ping -l 1472 -f www.baidu.com</code></p>
+
+  <p>请求将一个不允许分割的 <code class="highlighter-rouge">1472</code> 字节的数据包发送出去。</p>
+</blockquote>
+
+<p>示例</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span>\<span class="n">system32</span><span class="o">&gt;</span><span class="n">ping</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1472</span> <span class="o">-</span><span class="n">f</span> <span class="n">www</span><span class="o">.</span><span class="n">baidu</span><span class="o">.</span><span class="n">com</span>
+
+<span class="err">正在</span> <span class="n">Ping</span> <span class="n">www</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">shifen</span><span class="o">.</span><span class="n">com</span> <span class="p">[</span><span class="mf">39.156.66.18</span><span class="p">]</span> <span class="err">具有</span> <span class="mi">1472</span> <span class="err">字节的数据</span><span class="p">:</span>
+<span class="err">来自</span> <span class="mf">192.168.1.1</span> <span class="err">的回复</span><span class="p">:</span> <span class="err">需要拆分数据包但是设置</span> <span class="n">DF</span><span class="err">。</span>
+<span class="err">需要拆分数据包但是设置</span> <span class="n">DF</span><span class="err">。</span>
+<span class="err">需要拆分数据包但是设置</span> <span class="n">DF</span><span class="err">。</span>
+<span class="err">需要拆分数据包但是设置</span> <span class="n">DF</span><span class="err">。</span>
+
+<span class="mf">39.156.66.18</span> <span class="err">的</span> <span class="n">Ping</span> <span class="err">统计信息</span><span class="p">:</span>
+    <span class="err">数据包</span><span class="p">:</span> <span class="err">已发送</span> <span class="o">=</span> <span class="mi">4</span><span class="err">，已接收</span> <span class="o">=</span> <span class="mi">1</span><span class="err">，丢失</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">(</span><span class="mi">75</span><span class="o">%</span> <span class="err">丢失</span><span class="p">)</span><span class="err">，</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span>\<span class="n">system32</span><span class="o">&gt;</span><span class="n">ping</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1450</span> <span class="o">-</span><span class="n">f</span> <span class="n">www</span><span class="o">.</span><span class="n">baidu</span><span class="o">.</span><span class="n">com</span>
+
+<span class="err">正在</span> <span class="n">Ping</span> <span class="n">www</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">shifen</span><span class="o">.</span><span class="n">com</span> <span class="p">[</span><span class="mf">39.156.66.18</span><span class="p">]</span> <span class="err">具有</span> <span class="mi">1450</span> <span class="err">字节的数据</span><span class="p">:</span>
+<span class="err">来自</span> <span class="mf">39.156.66.18</span> <span class="err">的回复</span><span class="p">:</span> <span class="err">字节</span><span class="o">=</span><span class="mi">1450</span> <span class="err">时间</span><span class="o">=</span><span class="mi">43</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">51</span>
+<span class="err">来自</span> <span class="mf">39.156.66.18</span> <span class="err">的回复</span><span class="p">:</span> <span class="err">字节</span><span class="o">=</span><span class="mi">1450</span> <span class="err">时间</span><span class="o">=</span><span class="mi">44</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">51</span>
+<span class="err">来自</span> <span class="mf">39.156.66.18</span> <span class="err">的回复</span><span class="p">:</span> <span class="err">字节</span><span class="o">=</span><span class="mi">1450</span> <span class="err">时间</span><span class="o">=</span><span class="mi">44</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">51</span>
+<span class="err">来自</span> <span class="mf">39.156.66.18</span> <span class="err">的回复</span><span class="p">:</span> <span class="err">字节</span><span class="o">=</span><span class="mi">1450</span> <span class="err">时间</span><span class="o">=</span><span class="mi">43</span><span class="n">ms</span> <span class="n">TTL</span><span class="o">=</span><span class="mi">51</span>
+
+<span class="mf">39.156.66.18</span> <span class="err">的</span> <span class="n">Ping</span> <span class="err">统计信息</span><span class="p">:</span>
+    <span class="err">数据包</span><span class="p">:</span> <span class="err">已发送</span> <span class="o">=</span> <span class="mi">4</span><span class="err">，已接收</span> <span class="o">=</span> <span class="mi">4</span><span class="err">，丢失</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">(</span><span class="mi">0</span><span class="o">%</span> <span class="err">丢失</span><span class="p">)</span><span class="err">，</span>
+<span class="err">往返行程的估计时间</span><span class="p">(</span><span class="err">以毫秒为单位</span><span class="p">):</span>
+    <span class="err">最短</span> <span class="o">=</span> <span class="mi">43</span><span class="n">ms</span><span class="err">，最长</span> <span class="o">=</span> <span class="mi">44</span><span class="n">ms</span><span class="err">，平均</span> <span class="o">=</span> <span class="mi">43</span><span class="n">ms</span>
+</code></pre></div></div>
+
+<p>上述例子得到本机<code class="highlighter-rouge">MTU</code>介于<code class="highlighter-rouge">1450-1472</code></p>
+
+<h3 id="设置mtu">设置<code class="highlighter-rouge">MTU</code></h3>
+<ul>
+  <li>
+    <p>查看网卡接口</p>
+
+    <blockquote>
+      <p><code class="highlighter-rouge">cmd</code>命令提示符<code class="highlighter-rouge">netsh interface ipv4 show subinterfaces</code></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>设置相应网卡接口的本地<code class="highlighter-rouge">MTU</code>值</p>
+    <blockquote>
+      <ul>
+        <li>
+          <p><code class="highlighter-rouge">cmd</code>命令提示符（管理员）</p>
+        </li>
+        <li>
+          <p>在打开的运行窗口输入</p>
+        </li>
+      </ul>
+
+      <p><code class="highlighter-rouge">netsh interface ipv4 set subinterface "需修改的连接名" mtu=值 store=persistent</code>
+ 再点确定。
+ 其中，<code class="highlighter-rouge">需修改的连接名</code> 和 <code class="highlighter-rouge">值</code> 要用相应的值来代替。</p>
+
+      <p>例如，我这里需要输入：
+ <code class="highlighter-rouge">netsh interface ipv4 set subinterface "WLAN" mtu=1492 store=persistent</code></p>
+    </blockquote>
+  </li>
+</ul>
+
+:ET

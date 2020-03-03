@@ -7,6 +7,7 @@ cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: jekyll
 ---
 
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/imghellodave.jpg)
 > The static website is powered by jekyll + GithubPage
 
 ### So what is Jekyll, exactly?Permalink

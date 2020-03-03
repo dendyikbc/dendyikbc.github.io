@@ -8,7 +8,7 @@ cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: Anaconda 
 ---
 
-![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/imganaconda.jpg)
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/imganaconda-jupyter-notebook.jpg)
 > 安装Anaconda后经常需要更改jupyter notebook默认工作目录，趁这次疫情期间被关在家里，整理所得
 >
 > 电脑用户名:even

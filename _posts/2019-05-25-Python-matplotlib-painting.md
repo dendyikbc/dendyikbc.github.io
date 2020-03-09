@@ -13,9 +13,13 @@ tags: Python
  >个人绘图笔记
 
  博客迁移，原文链接[Python matplotlib绘图 自己的科研风？](https://blog.csdn.net/ddpiccolo/article/details/89892449)
+
  ### 个人常用的内容：绘图风格、字体类型、大小、`marker`、图例位置
+ 
  官网最直接、全面：[Pyplot function overview](https://matplotlib.org/api/pyplot_summary.html)
+ 
  #### 1.绘图风格
+ 
  `matplotlib`自带的风格课参考[Matplotlib Style Gallery](https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html)
 和[Customizing plots with style sheets](https://matplotlib.org/users/style_sheets.html#customizing-plots-with-style-sheets)
 另外还有`seaborn`库可以更好地学习。
@@ -26,6 +30,7 @@ tags: Python
 >```
 
 个人常用：
+
 `ggplot`
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190506214608108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 `bmh`
@@ -34,7 +39,9 @@ tags: Python
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190506214758526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 `seaborn-deep`
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019050621480625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
+
  #### 2.面向对象的基本绘图方式
+ 
 快速绘图中必须要考虑操作对象，面向对象绘图中加坐标名字和标题等要加`set_`。
 
  ```python
@@ -89,6 +96,7 @@ plt.savefig('xxx0-10-0.png')
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019050621484085.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 
  #### 3.pylab神技——pylab.rcParams.update()
+ 
 >一个比较全面的绘图属性设置，包括字号、字体类型、颜色、线宽等等。
 
 >具体使用请参照[Customizing matplotlib](https://matplotlib.org/users/customizing.html)，十分推荐。
@@ -177,6 +185,7 @@ plt.show()
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190506214859764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 
 #### 4.条形图、网络图、散点图的绘制
+
 画散点图，主要用到`scatter`。
 画网络图，主要用到`networkx`库。
 

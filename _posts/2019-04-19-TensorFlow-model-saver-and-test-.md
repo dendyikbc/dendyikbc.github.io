@@ -3,7 +3,6 @@ layout: post
 title: 'TensorFlow模型保存 测试篇'
 date: 2019-04-19
 author: Dave
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: TensorFlow
 ---
 

@@ -3,7 +3,6 @@ layout: post
 title: 'Hello Dave'
 date: 2020-03-01
 author: Dave
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: jekyll
 ---
 

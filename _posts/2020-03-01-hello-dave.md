@@ -3,7 +3,7 @@ layout: post
 title: 'Hello Dave'
 date: 2020-03-01
 author: Dave
-cover:'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/banner-for-blog.jpg'
+cover: 'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/banner-for-blog.jpg'
 tags: jekyll
 ---
 

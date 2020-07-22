@@ -40,12 +40,12 @@ tags: Anaconda
     ```
 
 ### part.02.jupyter notebook更改默认路径
-+ 新建新的工作目录`E:\pywd`
++ 新建新的工作目录 **E:\pywd**
 
-    在E盘新建文件夹"pywd"，路径`E:\pywd`，作为默认目录
-+ 生成配置文件`jupyter_notebook_config.py`
+    在E盘新建文件夹**pywd**，路径**E:\pywd**，作为默认目录
++ 生成配置文件 **jupyter_notebook_config.py**
 
-    cmd命令行中输入`jupyter notebook --generate-config`，可在`C:\Users\even\.jupyter`目录下生成`jupyter_notebook_config.py`。
+    cmd命令行中输入`jupyter notebook --generate-config`，可在**C:\Users\even\.jupyter**目录下生成 **jupyter_notebook_config.py**。
     
 + 修改工作目录
 
@@ -53,7 +53,7 @@ tags: Anaconda
     ```
     C:\Users\even\.jupyter\jupyter_notebook_config.py
     ```
-    找到`c.NotebookApp.notebook_dir`填充新的工作目录
+    找到c.NotebookApp.notebook_dir填充新的工作目录
     ```python
     ## The directory to use for notebooks and kernels.
     c.NotebookApp.notebook_dir = 'E:\pywd'
@@ -64,5 +64,5 @@ tags: Anaconda
     C:\ProgramData\Anaconda3\Scripts
     C:\ProgramData\Anaconda3\Library\bin
     ```
-+ 修改开始菜单中Jupyter Notebook的快捷方式(`最重要一步`)
-    >操作流程（以win10为例）：程序→`Anaconda`→ `Jupyter Notebook`→ 右键→ 属性→ 快捷方式→ 去掉“目标”一项中后面的`"%USERPROFILE%"`。
++ 修改开始菜单中Jupyter Notebook的快捷方式(**最重要一步**)
+    >操作流程（以win10为例）：程序→ **Anaconda** → **Jupyter Notebook** → 右键 → 属性 → 快捷方式 → 去掉“目标”一项中后面的 **"%USERPROFILE%"**。

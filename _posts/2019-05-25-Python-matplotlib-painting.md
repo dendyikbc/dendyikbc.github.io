@@ -5,7 +5,7 @@ subtitle: '点线图、散点图、网络图、条形图'
 date: 2019-05-25
 author: Dave
 
-cover: 'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/profile1.jpg'
+cover: 'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/banner-for-blog.jpg'
 tags: Python
 ---
 

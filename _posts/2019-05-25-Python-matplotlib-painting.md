@@ -18,7 +18,7 @@ tags: Python
  
  官网最直接、全面：[Pyplot function overview](https://matplotlib.org/api/pyplot_summary.html)
  
- #### 1.绘图风格
+ ## 1.绘图风格
  
  `matplotlib`自带的风格课参考[Matplotlib Style Gallery](https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html)
 和[Customizing plots with style sheets](https://matplotlib.org/users/style_sheets.html#customizing-plots-with-style-sheets)
@@ -40,7 +40,7 @@ tags: Python
 `seaborn-deep`
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019050621480625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 
- #### 2.面向对象的基本绘图方式
+ ## 2.面向对象的基本绘图方式
  
 快速绘图中必须要考虑操作对象，面向对象绘图中加坐标名字和标题等要加`set_`。
 
@@ -95,7 +95,7 @@ plt.savefig('xxx0-10-0.png')
 结果图:
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019050621484085.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 
- #### 3.pylab神技——pylab.rcParams.update()
+ ## 3.pylab神技——pylab.rcParams.update()
  
 >一个比较全面的绘图属性设置，包括字号、字体类型、颜色、线宽等等。
 
@@ -184,7 +184,7 @@ plt.show()
 结果图:
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190506214859764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RkcGljY29sbw==,size_16,color_FFFFFF,t_70)
 
-#### 4.条形图、网络图、散点图的绘制
+## 4.条形图、网络图、散点图的绘制
 
 画散点图，主要用到`scatter`。
 画网络图，主要用到`networkx`库。

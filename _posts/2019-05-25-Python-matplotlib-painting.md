@@ -4,7 +4,8 @@ title: 'Python matplotlib绘图 如何科研风？'
 subtitle: '点线图、散点图、网络图、条形图'
 date: 2019-05-25
 author: Dave
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+
+cover: 'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/profile1.jpg'
 tags: Python
 ---
 

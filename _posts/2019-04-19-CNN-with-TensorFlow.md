@@ -3,7 +3,6 @@ layout: post
 title: 'TensorFlow中CNN有关（基础）'
 date: 2019-04-19
 author: Dave
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: TensorFlow
 ---
 

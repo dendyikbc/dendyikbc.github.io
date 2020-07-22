@@ -4,7 +4,6 @@ title: 'Anaconda安装 和 jupyter notebook默认工作目录修改'
 subtitle: '这是windows10下的 '
 date: 2020-03-02
 author: Dave
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: Anaconda 
 ---
 

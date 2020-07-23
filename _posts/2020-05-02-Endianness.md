@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '口口相传的 大端序 与 小端序'
+title: '说说 大端序 与 小端序'
 subtitle: '关于字节顺序的解释与测试'
 date: 2020-05-02
 author: Dave

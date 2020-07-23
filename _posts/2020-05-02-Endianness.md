@@ -8,7 +8,7 @@ cover: ''
 tags: Java
 ---
 
-![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/Endianness1.jpg)
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/Endianness.jpg)
 
 
 ### 大端/小端模式

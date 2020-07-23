@@ -209,6 +209,7 @@ stack.pop();//出栈
 
 **针对不同结构具备不同语义化方法**
 - **单向队列**
+
 ```java
 Deque<String> queue = new ArrayDeque<>(32);
 
@@ -231,6 +232,7 @@ queue.isEmpty();
 queue.size();
 ```
 - **双端队列**
+
 ```java
 Deque<String> deque = new ArrayDeque<>(32);
 
@@ -253,6 +255,7 @@ deque.isEmpty();
 deque.size();
 ```
 - **堆栈**
+
 ```java
 Deque<String> stack = new ArrayDeque<>(32);
 
@@ -280,6 +283,7 @@ stack.size();
 LinkedList实现了Deque和Queue接口，也可以实现队列、双端队列、堆栈（Deque接口又定义了Stack的操作方法）这3种角色的功能。
 **LinkedList类 特性**
 - 用双向链表存储元素，维护的是一个first和last指针，首尾插入/删除效率高，但同时存储元素时需要额外空间存储前驱与后继的引用
+
 ```java
 private static class Node<E> {
         E item;
@@ -298,6 +302,7 @@ private static class Node<E> {
 - fail-fast机制
 - 非线程安全集合类
 **LinkedList基本方法**
+
 ```java
 //1.基本方法
 add(E e) //添加一个元素
@@ -346,6 +351,7 @@ toArray()//转数组
 
 **针对不同结构具备不同语义化方法**
 - **单向队列**
+
 ```java
 //两个队列实现一个栈，说的就是单向队列
 Queue<String> queue = new LinkedList<>();
@@ -357,11 +363,13 @@ queue.poll();
 
 ```
 - **双端队列**
+
 ```java
 Deque<String> deque = new LinkedList<>();
 
 ```
 - **堆栈**
+
 ```java
 Deque<String> stack = new LinkedList<>();
 

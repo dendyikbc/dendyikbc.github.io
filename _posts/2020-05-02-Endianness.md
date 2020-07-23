@@ -225,12 +225,12 @@ little_end
 
 Socket中的字节序转换函数
 
-| Direction   | Socket FUNC        | Description          | 
-| ------------- | ------------- |:-------------:| -----:|
-| NBO ⇀ HBO     | ntohl()     | "Network to Host Long" | 
-|               | ntohs()      | "Network to Host Short"|  
-| HBO ⇀ NBO     | htonl() | "Host to Network Long"      |   
-|               | htons() | "Host to Network Short"      |  
+| Socket FUNC        | Description          | 
+| ------------- |:-------------:| -----:|
+| ntohl() | "Network to Host Long"  | 
+| ntohs() | "Network to Host Short" |  
+| htonl() | "Host to Network Long"  |   
+| htons() | "Host to Network Short" |  
 
 
 

@@ -29,11 +29,13 @@ java中的Deque接口囊括了队列、双端队列、堆栈（Deque接口又定
 
 **ArrayDeque类 特性**
 - 用可变动态数组存储元素
+
 ```java
 transient Object[] elements; // non-private to simplify nested class access
 ```
 - 拥有head/tail这2个头尾指针；
 **tail 是下一个等待插入元素的索引并非尾部元素的索引**
+
 ```java
 //头部元素的索引
 transient int head;
@@ -93,6 +95,7 @@ doubleCapacity(); 
 //剩余源码 自己看
 ```
 - 不能添加null值，不然会报空指针；
+
 ```java
 public void addFirst(E e) {  
     if (e == null)  
@@ -124,6 +127,7 @@ public boolean offerLast(E e) {  
 }
 ```
 - 特别留意，内部通过二进制方式判断数组是否已满
+
 ```java
 //public void addFirst(E e)
     if (head == tail) // head和tail不可以重叠  
@@ -133,6 +137,7 @@ public boolean offerLast(E e) {  
         doubleCapacity();  
 ```
 - 内部虽然是数组，但不提供索引，随机访问并不友好；
+
 ```java
 //删除指定元素源码 需要遍历整个队列
 public boolean removeFirstOccurrence(Object o) {  

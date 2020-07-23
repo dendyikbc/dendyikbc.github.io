@@ -14,7 +14,6 @@ tags: Java
 >建议先点进去看类图，有个认知
 - [Java™ Platform, Standard Edition 8 API Specification](https://docs.oracle.com/javase/8/docs/api/?java/util/LinkedList.html)
 - [Java集合的小抄 ](https://www.runoob.com/w3cnote/java-collections.html)
-- [ArrayDeque类的使用详解](https://www.cnblogs.com/chenglc/p/10722304.html)
 ## Deque接口的实现类
 >Queue接口作为队列数据结构，java在实现的时候，直接定义了Deque接口（双端队列）来继承Queue接口，并且只实现Deque接口。所以我们在使用的时候直接使用的是Deque接口的实现类。
 java中的Deque接口囊括了队列、双端队列、堆栈（Deque接口又定义了Stack的操作方法）这3种角色的功能。 

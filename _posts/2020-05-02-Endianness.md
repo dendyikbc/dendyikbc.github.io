@@ -212,82 +212,25 @@ little_end
 
 
 | 主机字节顺序（HBO，Host Byte Order） |
-| ------------- |:-------------:| -----:|
+| ------------- |
 | 不同的机器HBO不相同，与CPU设计有关，数据的顺序是由cpu决定的,与操作系统无关。 |
 
 **Intelx86结构为小端，其余架构CPU基本为大端。**
 
 | 网络字节顺序NBO（Network Byte Order）  |
-| ------------- |:-------------:| -----:|
+| ------------- |
 | 按从高到低的顺序存储，在网络上使用统一的网络字节顺序，可以避免兼容性问题。 |
+
 
 
 Socket中的字节序转换函数
 
 | Direction   | Socket FUNC        | Description          | 
 | ------------- | ------------- |:-------------:| -----:|
-| NBO ⇀ HBO    | ntohl()     | "Network to Host Long" | 
-|     | ntohs()      | "Network to Host Short"|  
-| HBO ⇀ NBO    | htonl() | "Host to Network Long"      |   
-|      | htons() | "Host to Network Short"      |  
+| NBO ⇀ HBO     | ntohl()     | "Network to Host Long" | 
+|               | ntohs()      | "Network to Host Short"|  
+| HBO ⇀ NBO     | htonl() | "Host to Network Long"      |   
+|               | htons() | "Host to Network Short"      |  
 
 
 
-```c
-//判断当前机器的大小端存储
- 
-#include <stdio.h>
-#include <stdlib.h>
-int check_sys()
-{
-	union
-	{
-	  int i;
-	  char c;
-	}un;
-	un.i = 1;
-	return un.c;
-}
-int main()
-{
-	int ret = check_sys();
-	if (ret == 1)
-	{
-		printf("小端\n");
-	}
-	else
-	{
-		printf("大端\n");
-	}
-	return 0;
-}
-```
-
-
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
- 
-int check_sys()
-{
-    int a = 1;
-    return *(char*)&a;//返回1表示小端，返回0表示大端
-}
- 
-int main()
-{
-    if (check_sys() == 1)
-    {
-        printf("小端\n");
-    }
-    else
-    {
-        printf("大端\n");
-    }
-    system("pause");
-    return 0;
-}
-
-
-```

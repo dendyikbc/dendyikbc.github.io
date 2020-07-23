@@ -11,6 +11,7 @@ tags: Java
 
 ## JAVA中堆栈的实现
 - 不建议使用Stack类
+
 ```java
 //不建议使用原始栈的写法，已经out了
 //Stack是JDK 1.0的产物，继承自 Vector，复用了大量vector的方法，底层还是数组，官方已经不推荐使用了

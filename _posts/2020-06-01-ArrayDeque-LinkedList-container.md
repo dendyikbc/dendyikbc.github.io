@@ -40,7 +40,10 @@ transient int head;
 //尾部下一个将要被加入的元素的索引
 transient int tail;
 ```
+
 - 最小初始化容量为8，默认为16，是一个循环队列；
+
+
 ```java
 //最小容量，必须为2的幂次方
 private static final int MIN_INITIAL_CAPACITY = 8;
@@ -59,7 +62,9 @@ public ArrayDeque(Collection<? extends E> c) {  
 }
 ```
 
+
 - 扩容/初始化过程，遵循2的整数幂；
+
 ```java
 //这地方初始化同hashmap源码，返回大于n的最小的2的整数幂
 //值得一提的是，传入16返回32

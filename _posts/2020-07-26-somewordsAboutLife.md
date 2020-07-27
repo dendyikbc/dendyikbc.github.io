@@ -4,6 +4,7 @@ title: '对生活的认知'
 subtitle: 'ordinary or extraordinary？'
 date: 2020-07-26
 author: Dave
+cover: 'https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/banner-for-blog.jpg'
 tags: 云淡风轻 
 ---
 

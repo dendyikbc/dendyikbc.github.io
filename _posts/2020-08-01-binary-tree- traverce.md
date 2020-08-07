@@ -7,8 +7,8 @@ author: Dave
 tags: Java 
 ---
 
-
-## 二叉树遍历之BFS
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/binary-tree- traverce.jpg)
+## 关于二叉树的层序遍历
 
 ## 二叉树遍历模板
 - DFS遍历 

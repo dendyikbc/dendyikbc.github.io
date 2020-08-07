@@ -397,5 +397,5 @@ stack.size();
 ```
 ### LinkedList 与 ArrayDeque 在实现Deque接口时的选择
 
->按照 **是否需要按索引进行操作** 或 **经常插入/删除** 去选择**LinkedList** 
+>按照 **是否需要按索引进行操作** 或 **是否经常插入/删除** 或**是否需要存在null元素** 去选择**LinkedList** 
  

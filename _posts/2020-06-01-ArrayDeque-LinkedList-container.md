@@ -26,6 +26,7 @@ java中的Deque接口囊括了队列、双端队列、堆栈（Deque接口又定
 
 
 ### ArrayDeque类实现Deque接口
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/ArrayDeque-Class-Pic.JPG)
 
 **ArrayDeque类 特性**
 - 用可变动态数组存储元素
@@ -281,6 +282,7 @@ stack.size();
 
 ### LinkedList类实现Deque接口
 LinkedList实现了Deque和Queue接口，也可以实现队列、双端队列、堆栈（Deque接口又定义了Stack的操作方法）这3种角色的功能。
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/LinkedList-Class-Pic.JPG)
 **LinkedList类 特性**
 - 用双向链表存储元素，维护的是一个first和last指针，首尾插入/删除效率高，但同时存储元素时需要额外空间存储前驱与后继的引用
 

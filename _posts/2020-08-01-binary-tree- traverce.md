@@ -9,8 +9,6 @@ tags: Java
 
 
 ## 二叉树遍历之BFS
-- [BFS 的使用场景总结：层序遍历、最短路径问题](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/bfs-de-shi-yong-chang-jing-zong-jie-ceng-xu-bian-l/)
-    >记记笔记，这篇笔记大部分来自上文，小部分自己整理
 
 ## 二叉树遍历模板
 - DFS遍历 
@@ -38,6 +36,7 @@ BFS模板
 ```java
 void bfs(TreeNode root) {
     Queue<TreeNode> queue = new ArrayDeque<>();
+    
     queue.add(root);//root需要判定是否为null，只是模板在这里简写了
     while (!queue.isEmpty()) {
         TreeNode node = queue.poll(); // 等同于pollFirst和removeFirst()
@@ -284,7 +283,7 @@ public class Solution {
 
 解析可参考
 - [LeetCode面试题32 - III. 从上到下打印二叉树 III（层序遍历 BFS / 双端队列，清晰图解）](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/solution/mian-shi-ti-32-iii-cong-shang-dao-xia-da-yin-er--3/)
-解法1：
+
 ```java
 //这里用的LinkedList实现队列，但是写法向BFS模板中的ArrayDeque靠齐  可以针对null 适当改写
 import java.util.ArrayList;
@@ -320,68 +319,3 @@ class Solution {
 }
 
 ```
-
-递归，helpRight打印偶数层，helpLeft打印奇数层。
-> 代码
-
-未验证和修改 不推荐使用
-```java
- ArrayList<ArrayList<Integer>> nodesList = new ArrayList<ArrayList<Integer>>();
-
-    public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
-        if(pRoot == null) return nodesList;
-        int level = 0;
-        helpRight(pRoot,level);
-        helpLeft(pRoot,level);
-        return nodesList;
-
-    }
-
-
-    private void helpRight(TreeNode pRoot, int level) {
-
-        if(pRoot == null) return;
-        if(nodesList.size() == level){
-            nodesList.add(new ArrayList<Integer>());
-        }
-        if(level % 2 == 0){
-            nodesList.get(level).add(pRoot.val);
-        }
-        helpRight(pRoot.left,level+1);
-        helpRight(pRoot.right,level+1);
-    }
-
-    private void helpLeft(TreeNode pRoot, int level) {
-
-        if(pRoot == null) return;
-        if(nodesList.size() == level){
-            nodesList.add(new ArrayList<Integer>());
-        }
-        if(level % 2 == 1){
-            nodesList.get(level).add(pRoot.val);
-        }
-        helpLeft(pRoot.right,level+1);
-        helpLeft(pRoot.left,level+1);
-    }
-```
-
-
-
-
-
-
-
-ArrayList与类LinkedList不能强制数据类型转换。
-
-1.通过构造方法转换
-ArrayList arrayList = new ArrayList();
-
-LinkedList linkedList = new LinkedList(arrayList);
-
-LinkedList linkedList = new LinkedList();
-
-ArrayList arrayList = new ArrayList(linkedList);
-
- 
-
-2.通过list的add方法

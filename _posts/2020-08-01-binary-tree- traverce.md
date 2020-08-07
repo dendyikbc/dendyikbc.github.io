@@ -65,6 +65,7 @@ void bfs(TreeNode root) {
 
 
 **BFS 的ArrayDeque实现**
+
 ```java
 //直接套用BFS模板
 //一维List输出  不需要n分层计数
@@ -97,6 +98,7 @@ public class Solution {
 }
 ```
 **BFS 的LinkedList实现**
+
 LinkedList的实现 可以完全照搬ArrayDeque；也可以根据LinkedList允许null元素，在入队和出队上修整
 ```java
 //缩减一点点 Queue接口由Deque接口实现，Deque也可由LinkedList类实现，这里用LinkedList类实现
@@ -130,6 +132,7 @@ public class Solution {
 ```
 
 **DFS 的递归实现**
+
 ```java
 
 先分层递归后修整成一个维度
@@ -153,6 +156,7 @@ public class Solution {
 思路：典型的层序遍历 分层打印 在原有BFS层序遍历的基础之上进行二维构造 输出二维List 每层需要记录元素个数
 
 **BFS 的ArrayDeque实现**
+
 ```java
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -203,6 +207,7 @@ public class Solution {
 
 
 **DFS 的递归实现**
+
 ```java
 import java.util.ArrayList;
 
@@ -279,6 +284,7 @@ public class Solution {
 ```
 
 **BFS 的LinkedList实现**
+
 层序遍历 按行打印 利用LinkedList的双向链表特性 偶数层倒序添加 
 
 解析可参考

@@ -143,7 +143,8 @@ static final int hash(Object key) {
 >执行树的插入操作
 
 ## HashMap的resize扩容机制
-
+双倍扩容
+具体怎么移动元素的呢？
 
 ## 哈希冲突
 >理论上不可避免，只能尽量避免
@@ -251,6 +252,7 @@ public class IntegerDemo {
 }
 ```
 - 方式2，根据键值对的对象查询键和值
+
 ```java
 import java.util.HashMap;
 import java.util.Map;

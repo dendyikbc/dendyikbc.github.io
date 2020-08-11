@@ -23,7 +23,7 @@ tags: Java
     //核心为String.valueOf(char)
     char c='c';
     //1.
-    String s = String.valueOf('c'); //效率最高
+    String s = String.valueOf(c); //效率最高
     //2.
     String s = Character.toString(c);// Character.toString(char)方法实际上直接返回String.valueOf(char)
     //3.

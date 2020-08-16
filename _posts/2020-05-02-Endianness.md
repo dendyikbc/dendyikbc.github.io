@@ -158,7 +158,7 @@ static ByteOrder byteOrder() {
 ```
 
 
-java中大小端转换
+**java中大小端转换**
 
 ```java
 //数组中b[3]  为高位内存地址
@@ -184,7 +184,12 @@ public static byte[] toHH(int n) {
 }
 
 ```
-附一个C++测试
+
+### 附上C++的测试方法
+
+**法1**
+>指针
+
 ```c++
 //判断当前机器的大小端存储
 #include <iostream>
@@ -204,6 +209,51 @@ int main(){
 /*
 little_end
 */
+```
+
+
+**法2**
+>联合体
+
+```c++
+//判断当前机器的大小端存储
+#include <iostream>
+using namespace std;
+
+int main(){
+	union w
+	{
+	int a;
+	char b;
+	}c;
+	c.a = 1;
+    if(c.b == 1){//低位地址*c存放低位字节0x78
+        cout<<"little_end"<<endl;
+    }else{
+        cout<<"big_end"<<endl;
+    }
+    return 0;
+}
+```
+
+
+**法3**
+>强转类型判断
+
+```c++
+//判断当前机器的大小端存储
+#include <iostream>
+using namespace std;
+
+int main(){
+	short zero=0x0030;//ANSII 0
+    if((char)zero =='0'){//小端true, 大端false
+        cout<<"little_end"<<endl;
+    }else{
+        cout<<"big_end"<<endl;
+    }
+    return 0;
+}
 ```
 
 说了很多，那什么时候使用大小端呢

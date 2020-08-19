@@ -7,7 +7,7 @@ author: Dave
 tags: Java刷题
 ---
 
-![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/datawhale-ps.png)
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/datawhale-ps-1.png)
 
 >记录DataWhale 相对比较随意
 

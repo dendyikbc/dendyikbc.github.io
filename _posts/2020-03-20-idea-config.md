@@ -28,6 +28,7 @@ tags: Java
 
 添加以下内容：
 - 模板1
+
 ```java
 /**
 * @ClassName : ${NAME}  //类名
@@ -37,6 +38,7 @@ tags: Java
 */
 ```
 - 模板2
+
 ```java
 /**
   * Copyright (C), 2015-${YEAR}, XXX有限公司
@@ -84,13 +86,14 @@ public class ${NAME} {
 
 
 ### 插件
+
 - [TranslationPlugin](https://github.com/YiiGuxing/TranslationPlugin)
 
 - [阿里巴巴Java代码规约插件p3c-pmd](https://mp.weixin.qq.com/s/lBDe60LFpdXoi2xbA-L2Qg?)
 
 ### 使用篇
 
-- [Intellij IDEA 使用教程 | 菜鸟教程](https://www.runoob.com/w3cnote/intellij-idea-usage.html)
+- [Intellij IDEA 使用教程](https://www.runoob.com/w3cnote/intellij-idea-usage.html)
 
 - [IntelliJ IDEA使用教程（很全）](https://www.cnblogs.com/yjd_hycf_space/p/7483921.html)
     >新建Java web项目演示

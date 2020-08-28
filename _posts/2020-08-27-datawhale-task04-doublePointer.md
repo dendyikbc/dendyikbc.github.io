@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'DataWhale Task03：查找之 双指针'
+title: 'DataWhale Task04：查找之 双指针'
 subtitle: '双指针刷题笔记'
 date: 2020-08-27
 author: Dave

@@ -437,7 +437,10 @@ class Solution {
     }
 }
 ```
+
 - 大顶堆 借助于compartor
+
+
 ```java
 /*
 用哈希表存储每个字符的出现次数，再通过一个大顶堆（根据出现次数排序），不断取出堆顶元素，使用StringBuilder不断append即可。
@@ -465,6 +468,7 @@ class Solution {
 }
 
 ```
+
 **车轮滚滚 时间**
 
 今天用错方法了  length，length()，size()

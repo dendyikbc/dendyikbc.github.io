@@ -12,13 +12,44 @@ tags: Java
 ### 数组二叉树
 
 ```java
-An e-commerce company has launched some new products To promote these newly launched products the company adds people from elsewhere in the company to their marketing teams. The people are added in a hierarchical manner. A person can add at most two subordinates under him/her. A new person can be added under one person only. The person who starts the chain is at the top of the hierarchy. Every person in the hierarchy is given a unique ID The marketing head is of the new team at the top of the hierarchy and is given the ID O. Every person in the hierarchy is also assigned the count(sales value) of products sold by him/her in the previous year. The company wants to assign new sales targets for the upcoming year to each employee. For this purpose they arrange the sales values of the employees by traversing the hierarchy in an inorder manner. The inorder traversal starts with the left subordinate then proceeds to the person who added him, then it moves to the right subordinate of the person. The new sales value is the sum of the current sales of the person to the left and the person to the right in the inorder traversal Write an algorithm to help the company find the new sales value assigned to each employee. The first line of the input consists of an integer -num, representing the number of nodes(N) The second line consists of N space-separated integers representing the subordinates, where the ith person has left and right subordinates at 2i+1 and 2i+2 positions, respectively Output Print space-separated integers representing the new sales values assigned to the employees in an inorder manner. If the value in the hierarchy is-1 then there is no need to calculate a new sales value as this person does not exist. The value -1 is never considered in the calculation of the new sales value for any person
+An e-commerce company has launched some new products To promote 
+these newly launched products the company adds people from 
+elsewhere in the company to their marketing teams. The people 
+are added in a hierarchical manner. A person can add at most 
+two subordinates under him/her. A new person can be added 
+under one person only. The person who starts the chain is at 
+the top of the hierarchy. Every person in the hierarchy is 
+given a unique ID The marketing head is of the new team at 
+the top of the hierarchy and is given the ID O. Every person 
+in the hierarchy is also assigned the count(sales value) of 
+products sold by him/her in the previous year. The company 
+wants to assign new sales targets for the upcoming year to 
+each employee. For this purpose they arrange the sales values 
+of the employees by traversing the hierarchy in an inorder manner. 
+The inorder traversal starts with the left subordinate then 
+proceeds to the person who added him, then it moves to the 
+right subordinate of the person. The new sales value is the 
+sum of the current sales of the person to the left and the 
+person to the right in the inorder traversal Write an algorithm 
+to help the company find the new sales value assigned to 
+each employee. The first line of the input consists of an 
+integer -num, representing the number of nodes(N) The second 
+line consists of N space-separated integers representing the 
+subordinates, where the ith person has left and right subordinates 
+at 2i+1 and 2i+2 positions, respectively Output Print space-separated 
+integers representing the new sales values assigned to the employees 
+in an inorder manner. If the value in the hierarchy is-1 then there 
+is no need to calculate a new sales value as this person does not exist. 
+The value -1 is never considered in the calculation of the new sales value for any person
 
 
 The inorder traversal results are [5, 2, 1, 7, 9, 6]
 The new sales value for the person with the current sale value l is 9(2+7)
-The new sales value for the person with the current sale value 5 is 2(0+2). This person has no person to his left in inorder traversal,so the value is considered as o for the nonperson to the left.
-The new sales values for the remaining people are similarly calculated Arranging the new values in inorder manner, the output is [2, 6, 9, 10, 13, 9]
+The new sales value for the person with the current sale value 5 is 2(0+2). 
+This person has no person to his left in inorder traversal,so the value is 
+considered as o for the nonperson to the left.
+The new sales values for the remaining people are similarly calculated 
+Arranging the new values in inorder manner, the output is [2, 6, 9, 10, 13, 9]
 
 ```
 

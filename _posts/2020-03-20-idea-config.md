@@ -119,6 +119,7 @@ public class ${NAME} {
 ### idea中JDK源码的正确打开方式
 - [IDEA查看JDK源代码](https://www.cnblogs.com/lbrs/p/10923748.html)
 - [IDEA查看Java源码技巧](https://blog.csdn.net/qq_28666081/article/details/83898684)
+- [IDEA查看源码时总是出现.class而不是.java源码(解决办法)](https://blog.csdn.net/qq_42524288/article/details/101375039)
 
 ```java
 1 查看接口的实现类：Ctrl+Alt+B

@@ -118,6 +118,40 @@ tags: Java
 ## HashMap的put写数据具体流程
 put(key,value)
 
+    ```java
+
+    public V put(K key, V value) {
+        return putVal(hash(key), key, value, false, true);
+    }
+    
+    /**
+     * Implements Map.put and related methods.
+     *
+     * @param hash hash for key
+     * @param key the key
+     * @param value the value to put
+     * @param onlyIfAbsent if true, don't change existing value
+     * @param evict if false, the table is in creation mode.
+     * @return previous value, or null if none
+     */
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+                   ......
+                   
+                   }
+    ```
+    
+    说到这里 更新两个有意思的方法 很方便
+    ```java
+    map.put(key, map.getOrDefault(key, 0) + 1);
+    //getOrDefault(key, 0)有key就用key对应的value,没有就使用defaultValue，这里的defaultValue传入值为0
+    //以前没怎么注意到hashmap这个方法 其实挺好用的 
+
+    //当Map集合中有这个key时，就使用这个key值去获取相应value来使用，如果没有就使用默认值defaultValue
+    default V getOrDefault(Object key, V defaultValue)
+    //果传入key对应的value已经存在，就返回存在的value，不进行替换。如果不存在，就添加key和value，返回null
+    V putIfAbsent(K key, V value)
+    ```
 **寻址算法**
 
 **1.key 与 hashCode 高低位异或 获取hash字段**
@@ -133,6 +167,8 @@ static final int hash(Object key) {
 **数据插入**
 
 **3.根据slot槽内状况，状况不同，情况不同**
+
+>源码里面斜的很清楚 顺下来就对了
 
 - slot=null
 >直接插入key-value

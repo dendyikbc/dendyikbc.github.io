@@ -118,8 +118,7 @@ tags: Java
 ## HashMap的put写数据具体流程
 put(key,value)
 
-    ```java
-
+```java
     public V put(K key, V value) {
         return putVal(hash(key), key, value, false, true);
     }
@@ -139,10 +138,11 @@ put(key,value)
                    ......
                    
                    }
-    ```
+```
     
-    说到这里 更新两个有意思的方法 很方便
-    ```java
+说到这里 更新两个有意思的方法 很方便
+
+```java
     map.put(key, map.getOrDefault(key, 0) + 1);
     //getOrDefault(key, 0)有key就用key对应的value,没有就使用defaultValue，这里的defaultValue传入值为0
     //以前没怎么注意到hashmap这个方法 其实挺好用的 
@@ -151,7 +151,7 @@ put(key,value)
     default V getOrDefault(Object key, V defaultValue)
     //果传入key对应的value已经存在，就返回存在的value，不进行替换。如果不存在，就添加key和value，返回null
     V putIfAbsent(K key, V value)
-    ```
+```
 **寻址算法**
 
 **1.key 与 hashCode 高低位异或 获取hash字段**

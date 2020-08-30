@@ -138,6 +138,9 @@ public class ${NAME} {
 ```
 
 ### idea的偷懒迷惑行为
+
+- [Live templates](https://www.jetbrains.com/help/idea/using-live-templates.html)
+
 # How to use intellij idea more efficient in daily coding？
 >This is my own tips in the process of my java learning with intellij idea，not stand any others's choice.
 >Keep Updating 

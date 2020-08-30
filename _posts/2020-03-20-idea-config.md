@@ -105,6 +105,7 @@ public class ${NAME} {
 - [IntelliJ IDEA 常用设置讲解](https://www.cnblogs.com/yjd_hycf_space/p/7930929.html)
 - [IDEA快捷键整理（最详细的）](https://www.cnblogs.com/yjd_hycf_space/p/7479646.html)
 ### Deubg部分
+- [IBM® IBM Knowledge Center](https://www.ibm.com/support/knowledgecenter/zh/SSYKE2_7.0.0/com.ibm.java.win.70.doc/diag/appendixes/cmdline/Xverify.html)
 - [IDEA调试总结（设置断点进行调试）](https://www.cnblogs.com/yjd_hycf_space/p/7483471.html)
 
 ### Spring/SpringBoot

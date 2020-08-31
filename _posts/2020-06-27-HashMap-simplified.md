@@ -76,6 +76,7 @@ tags: Java
     ```JAVA
     new HashMap<String, String>(X);//返回>X的2的整数幂
     new HashMap<String, String>(1025);//实际为2048
+    //大于等于输入参数并最接近参数的2的整数次幂的数，如10，返回16；如128返回128；
 
     //源码中的cap
     static final int tableSizeFor(int cap) {

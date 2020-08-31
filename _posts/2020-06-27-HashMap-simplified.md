@@ -117,6 +117,9 @@ tags: Java
 
 
 ## HashMap的put写数据具体流程
+
+- [HashMap的构造方法及第一次put时的扩容操作](https://www.jianshu.com/p/dc7d4ed83897)
+
 put(key,value)
 
 ```java

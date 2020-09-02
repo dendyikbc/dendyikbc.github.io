@@ -525,6 +525,7 @@ public class Solution {
 - 思路2：循环/构造等长链表
 
 a1 a2 c1 c2 c3 /b1 b2 b3 **c1 c2 c3**
+
 b1 b2 b3 c1 c2 c3 /a1 a2 **c1 c2 c3**
 
 ```java

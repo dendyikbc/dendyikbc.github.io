@@ -389,6 +389,10 @@ final Node<K,V>[] resize() {
 |HashMap(int initialCapacity)	|DEFAULT_LOAD_FACTOR   |tableSizeFor(initialCapacity)    |null    |0    |
 |HashMap()	|DEFAULT_LOAD_FACTOR   |0   |null    |0    |
 
+
+
+测试 1000
+
 ```java
 Map<Integer, Integer> map1 = new HashMap<>(1000);
 for(int i=0;i<1000;i++){
@@ -404,7 +408,27 @@ for(int i=0;i<1000;i++){
 |0(第一次put的时候)	|1024    |  768 | 第一扩容resize()  |
 |768(第769次put的时候)	|2048    |  1538 | 再次扩容resize()  |
 
-所以不考虑第一扩容的情况下 会有一次resize()。
+所以1000的时候，不考虑第一扩容的情况下 会有一次resize()。
+
+测试 10000
+
+```java
+Map<Integer, Integer> map1 = new HashMap<>(10000);
+for(int i=0;i<10000;i++){
+    map.put(i, 1);
+}
+```
+
+
+
+|**i**	|**数组长度** |**阈值threshold**    |**是否resize()**    |
+|:---------|:---------:|:---------:|:---------:|
+|-1(刚new的时候)	|0    |  16384 |   |
+|0(第一次put的时候)	|16384    |  12288 | 第一扩容resize()  |
+
+put执行10000次也到不了阈值
+
+所以10000的时候，不考虑第一扩容的情况下 不会再次resize()。
 
 
 这里来考虑另一种 无参构造下的

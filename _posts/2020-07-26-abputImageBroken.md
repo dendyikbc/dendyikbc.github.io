@@ -31,6 +31,29 @@ tags: GitHub
     ```java
     199.232.28.133 raw.githubusercontent.com
     ```
+    
+    当然也可以有细化的版本
+    
+    
+    ```java
+    # GitHub Host Start
+    185.199.108.154 github.githubassets.com
+    199.232.68.133 camo.githubusercontent.com
+    199.232.68.133 github.map.fastly.net
+    199.232.69.194 github.global.ssl.fastly.net
+    140.82.113.3 github.com
+    140.82.112.5 api.github.com
+    199.232.68.133 raw.githubusercontent.com
+    199.232.68.133 user-images.githubusercontent.com
+    199.232.68.133 favicons.githubusercontent.com
+    199.232.68.133 avatars5.githubusercontent.com
+    199.232.68.133 avatars4.githubusercontent.com
+    199.232.68.133 avatars3.githubusercontent.com
+    199.232.68.133 avatars2.githubusercontent.com
+    199.232.68.133 avatars1.githubusercontent.com
+    199.232.68.133 avatars0.githubusercontent.com
+    # GitHub Host End
+    ```
 
     - 或者使用hosts切换工具 [SwitchHosts](https://github.com/oldj/SwitchHosts)直接添加
     ![](https://raw.githubusercontent.com/oldj/SwitchHosts/master/screenshots/sh_light.png)

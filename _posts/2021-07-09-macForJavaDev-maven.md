@@ -10,7 +10,7 @@ tags: MAC开发环境
 
 
 **最前面**
-- 上一节：[Mac开发环境（1）：Homebrew安装配置JDK MySql]()
+- 上一节：[Mac开发环境（1）：Homebrew安装配置JDK MySql](https://picc0lo.top/2021/07/09/macForJavaDev-brew-jdk-mysql.html)
 - 下一节：
 - [Springboot 版本+ jdk 版本 + Maven 版本的匹配](https://www.cnblogs.com/jpfss/p/9037005.html)
 - [Spring Boot Documention](https://spring.io/projects/spring-boot#learn)

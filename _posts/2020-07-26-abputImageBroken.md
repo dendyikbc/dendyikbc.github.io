@@ -57,3 +57,8 @@ tags: GitHub
 
     - 或者使用hosts切换工具 [SwitchHosts](https://github.com/oldj/SwitchHosts)直接添加
     ![](https://raw.githubusercontent.com/oldj/SwitchHosts/master/screenshots/sh_light.png)
+    
+    
+    
+    - 自动更新**GitHub hosts地址**，看这里[GitHub 加速教程](https://brew.idayer.com/guide/github)。
+    ->最近使用homebrew发现的科大镜像源维护站的好东西 `针不戳呀`    

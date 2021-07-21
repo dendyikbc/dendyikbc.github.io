@@ -12,7 +12,7 @@ tags: 通用文档
 
 - [Markdown 语法教程](https://markdown.com.cn/)
     >在线查找入口
-- [本文档地址]()
+- [本文档地址](https://github.com/dendyikbc/dendyikbc.github.io/blob/master/_posts/2021-07-21-markdownDoc.md)
 ## markdown表格
 
 | Tables        | Are           | Cool  |

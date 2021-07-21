@@ -11,10 +11,10 @@ tags: MAC开发环境
 
 
 >问题起源：springboot项目启动报错 在根目录下无法创建/data 存放项目日志 
->
->```powershell
->ERROR in ch.qos.logback.core.rolling.RollingFileAppender[APP] - Failed to create parent directories for [/data/apps/项目名/logs/app.log]
->```
+
+```powershell
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[APP] - Failed to create parent directories for [/data/apps/项目名/logs/app.log]
+```
 
 
 
@@ -53,9 +53,13 @@ mkdir: data: Read-only file system
 - 配置文件如需转换，记得转换。
 - [ToYaml.com -- Convert between Properties and YAML Online ](https://www.toyaml.com/index.html)
 
-/data/apps/java-${spring.application.name}-controller/logs
+
 
 ```
+## 原配置
+logdir: /data/apps/java-${spring.application.name}-controller/logs
+
+## 本地修改路径
 logdir: /Users/admin/Downloads/java-${spring.application.name}-controller
 ```
 
@@ -99,7 +103,7 @@ SIP 全称为「System Integrity Protection」即「[系统完整性保护](http
 
 **2.man synthetic.conf，官方软连接方案**
 
-> 最终解决办法，BigSur可用，Monterey未知。
+> 最终解决办法，Big Sur可用，Monterey未知。
 
 ```powershell
 ## 0.查看synthetic.conf说明

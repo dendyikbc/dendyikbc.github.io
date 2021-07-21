@@ -11,7 +11,7 @@ tags: MAC开发环境
 >习惯了win下的环境，最近换开发环境了，记录以下
 
 **最前面**
-- 下一节：[Mac开发环境（2）：maven安装配置+idea配置]()
+- 下一节：[Mac开发环境（2）：maven安装配置+idea配置](https://picc0lo.top/2021/07/09/macForJavaDev-maven.html)
 
 >springboot 2.x +java 8 ，maven需要3.2以上，
 
@@ -57,6 +57,7 @@ Homebrew主要有四个部分组成: brew、homebrew-core 、homebrew-bottles、
 **brew默认安装路径: /usr/local/Cellar**
 
   >也可指定，参照[Homebrew学习（二）之安装、卸载、更新](https://www.cnblogs.com/kunmomo/p/11267429.html),安装Homebrew时对安装路径进行指定，直接安装在不需要系统root用户授权就可以自由读写的目录下.
+  
   ```powershell
   ## 指定路径安装，我还没试过
   <install path> -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

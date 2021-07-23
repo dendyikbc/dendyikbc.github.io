@@ -62,3 +62,7 @@ tags: GitHub
     
     - 自动更新**GitHub hosts地址**，看这里[GitHub 加速教程](https://brew.idayer.com/guide/github)。
     ->最近使用homebrew发现的科大镜像源维护站的好东西 `针不戳呀`    
+    
+    新建远程hosts，地址写入
+    >https://cdn.jsdelivr.net/gh/ineo6/hosts/hosts
+    >更新时间：一小时

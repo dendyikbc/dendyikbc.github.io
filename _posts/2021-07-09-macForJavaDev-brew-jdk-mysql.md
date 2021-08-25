@@ -152,6 +152,10 @@ brew install 软件包名
 
 ## 举例：brew install maven@3.3
 
+brew install --cask 软件包名
+
+## 举例：brew install --cask docker
+
 ## 卸载
 brew uninstall 软件包名
 

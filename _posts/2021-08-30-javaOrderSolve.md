@@ -43,6 +43,7 @@ tags: Java
 ### 第一种主要为自定义类的排序
 
 - 示例1:定义新类时继承Comparable接口，并重写
+
 ```java
 //新类定义时，继承Comparable接口，并重写
 import java.util.*;

@@ -373,7 +373,7 @@ class User{
     }
 }
 ```
-## intermediate operation
+## `intermediate operation`
 ## stream流中间操作 
 
 ### 1.排序

@@ -196,7 +196,8 @@ Comparator<String> comparatorByStrValue=(String a, String b) -> a.compareTo(b);
 //3.按照字符串最后一个字符大小增序
 Comparator<String> comparatorByLastCharValue = (String a, String b) ->
         (a.charAt(a.length() - 1) - b.charAt(b.length() - 1));
-//4.字典序
+//4.相对字典序（相同长度时按字典序，不同长度时按长度增序）
+//因为默认具备字典序列
 Comparator<String> comparatorByDictOrderL = (String a, String b) ->
         ((a.length() - b.length()) == 0 ? a.compareTo(b) : (a.length() - b.length()));
 ```

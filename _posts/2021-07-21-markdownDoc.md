@@ -13,6 +13,13 @@ tags: 通用文档
 - [Markdown 语法教程](https://markdown.com.cn/)
     >在线查找入口
 - [本文档地址](https://github.com/dendyikbc/dendyikbc.github.io/blob/master/_posts/2021-07-21-markdownDoc.md)
+- 转pdf 强制分页
+
+```xml
+<div STYLE="page-break-after: always;"></div>
+```
+
+- [Markdown箭头的输入方法汇总](https://www.jianshu.com/p/d63887d0c706)
 ## markdown表格
 
 | Tables        | Are           | Cool  |

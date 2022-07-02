@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '数组问题：差分思想与前缀和思想'
-subtitle: '主要为Mac/Linux下常用快捷键/命令/设置'
+subtitle: ''
 date: 2021-10-10
 author: Dave
 cover: ''

@@ -4,7 +4,7 @@ title: '剑指offer中的二叉树 (1)'
 subtitle: '关于二叉树的层序遍历'
 date: 2020-08-01
 author: Dave
-tags: Java 
+tags: 算法与刷题
 ---
 
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/binary-tree-traverce.jpg)

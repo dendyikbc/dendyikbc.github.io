@@ -4,7 +4,7 @@ title: 'DataWhale Task01：分冶算法'
 subtitle: '分冶刷题笔记'
 date: 2020-08-19
 author: Dave
-tags: Java刷题
+tags: 算法与刷题
 ---
 
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/datawhale-ps-1.png)

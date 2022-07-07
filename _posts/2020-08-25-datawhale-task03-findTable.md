@@ -4,7 +4,7 @@ title: 'DataWhale Task03：查找之 查找表'
 subtitle: '查找表刷题笔记'
 date: 2020-08-25
 author: Dave
-tags: Java刷题
+tags: 算法与刷题
 ---
 
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/datawhale-ps.png)

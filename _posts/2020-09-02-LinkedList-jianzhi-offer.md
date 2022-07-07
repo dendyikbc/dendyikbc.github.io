@@ -5,7 +5,7 @@ subtitle: '链表'
 date: 2020-09-2
 author: Dave
 cover: ''
-tags: Java
+tags: 算法与刷题
 ---
 
 

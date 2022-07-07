@@ -5,7 +5,7 @@ subtitle: 'JAVA研发笔试'
 date: 2020-08-28
 author: Dave
 cover: ''
-tags: Java 
+tags: 算法与刷题
 ---
 
 ### 真惨

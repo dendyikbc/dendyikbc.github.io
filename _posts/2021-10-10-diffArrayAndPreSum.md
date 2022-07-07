@@ -23,7 +23,7 @@ tags: 算法与刷题
 
 **前缀和数组**： 前缀和定义为从数组第一位数到当前位置这个区间内的所有的数字之和；对于已知有n个元素的数组a，建立记录它每项到数组首部区间所有数字之和的前缀和数组preSum，preSum[0] = 0，对于整数i∈[1,n)，preSum[i] = preSum[i-1] + a[i-1]。
 
-![数组思想](/Users/zhouyun/Documents/picc0lo.top/数组思想.png)
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/commonQuery/数组思想.png)
 
 **性质**
 

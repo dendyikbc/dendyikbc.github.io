@@ -4,7 +4,7 @@ title: 'DataWhale Task04：查找之 双指针'
 subtitle: '双指针刷题笔记'
 date: 2020-08-27
 author: Dave
-tags: Java刷题
+tags: 算法与刷题
 ---
 
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/img/datawhale-ps.png)

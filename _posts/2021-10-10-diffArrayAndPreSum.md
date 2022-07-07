@@ -57,9 +57,7 @@ preSum[k] = a[0] + a[1] +......+ a[k-1]
 
 **结论3表达式**
 
-$$
-\operatorname{preSum}_{k}=\sum_{i=0}^{k-1} a_{i}=\sum_{i=0}^{k-1} \sum_{j=0}^{i} diff_{j}=\sum_{i=0}^{k-1}(k-i) \cdot diff_{i}
-$$
+![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/commonQuery/前缀和与差分数组关系.png)
 
 
 ### 运用

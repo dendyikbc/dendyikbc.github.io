@@ -178,7 +178,7 @@ A: 写进程先获得锁。
   - 意向排它锁(Intention Exclusive Locks, IX)，它预示着，事务有意向对表中的某些行加排它X锁；
 
     ```sql
-    select * from table where ? for update; 				-- for update  显式加锁的读 设置意向排它锁
+    select * from table where ? for update; 	   -- for update  显式加锁的读 设置意向排它锁
     ```
 	  
 	- 兼容性
@@ -272,7 +272,7 @@ MVCC 核心思想为保存数据在某个时间点的快照。不同存储引擎
   ```sql
   ## 当前读范式
   select * from table where ? lock in share mode; -- lock in share mode 显式加锁的读 设置意向共享锁
-  select * from table where ? for update; 				-- for update  显式加锁的读 设置意向排它锁
+  select * from table where ? for update; 	  -- for update  显式加锁的读 设置意向排它锁
   insert into table values (…); -- 标准增删改 默认当前读
   delete from table where ?;		-- 标准增删改 默认当前读
   update table set ? where ?;		-- 标准增删改 默认当前读

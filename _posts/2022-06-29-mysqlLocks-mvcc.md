@@ -169,26 +169,19 @@ A: 写进程先获得锁。
 表级锁
 
 - 意向锁（Intention Locks）：控制表中并不存在的行，这些行以后可能存在；意向锁间相互兼容；
-
   - 意向共享锁(Intention Shared Locks, IS)，它预示着，事务有意向对表中的某些行加共享S锁；
-
     ```sql
     select * from table where ? lock in share mode; -- lock in share mode 显式加锁的读 设置意向共享锁
-
+    ```
   - 意向排它锁(Intention Exclusive Locks, IX)，它预示着，事务有意向对表中的某些行加排它X锁；
-
     ```sql
     select * from table where ? for update; 	   -- for update  显式加锁的读 设置意向排它锁
-    ```
-	  
+    ```  
 	- 兼容性
-	
 	  > 1）意向锁间相互兼容；
-	  >
 	  > 2）S锁间相互兼容；
-	  >
 	  > 3）X锁互斥一切；
-	
+
 	  |      |  S   |  X   |  IS  |  IX  |
 	  | :--: | :--: | :--: | :--: | :--: |
 	  |  S   | 兼容 | 互斥 | 兼容 | 互斥 |

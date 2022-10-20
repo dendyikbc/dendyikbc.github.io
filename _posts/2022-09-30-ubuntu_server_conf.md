@@ -8,7 +8,7 @@ cover: ''
 tags: Linux
 ---
 
-> 因为个人对ubuntu比较熟悉，所以这里选择安装ubuntu_server_20.04 LTS 版本
+> 因为个人对ubuntu比较熟悉，所以这里选择安装ubuntu_server_22.04 LTS 版本
 
 - 安装过程记得安装ssh
 

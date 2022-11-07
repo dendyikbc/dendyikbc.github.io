@@ -31,9 +31,10 @@ tags: TensorFlow
 > 
 > .data文件可以查询到参数名和参数值，使用下面的命令可以查询保存在文件中的全部变量{名：值}对，
 
-```tf.train.get_checkpoint_state( )  ```函数可以通过检查点文件锁定最新的模型
-```tf.train.import_meta_graph( )```函数给出```model.ckpt-n.meta```的路径后会加载图结构，并返回```saver```对象
-```saver.restore(sess, model.model_checkpoint_path)```用于模型的恢复
+`tf.train.get_checkpoint_state( )` 函数可以通过检查点文件锁定最新的模型
+`tf.train.import_meta_graph( )` 函数给出`model.ckpt-n.meta`的路径后会加载图结构，并返回`saver`对象
+`saver.restore(sess, model.model_checkpoint_path)` 用于模型的恢复
+
 ```python
 ckpt = tf.train.get_checkpoint_state('ckpt-5/') # 通过检查点文件锁定最新的模型
 saver = tf.train.import_meta_graph(ckpt.model_checkpoint_path + '.meta')  # 载入图结构，保存在.meta文件中
@@ -41,7 +42,7 @@ saver.restore(sess, ckpt.model_checkpoint_path)
 ```
 
 
-```tf.train.Saver```函数会返回加载默认图的```saver```对象，```saver```对象初始化时可以指定变量映射方式，根据名字映射变量
+`tf.train.Saver`函数会返回加载默认图的`saver`对象，`saver`对象初始化时可以指定变量映射方式，根据名字映射变量
 
 下面是最近一个完整的加载过程
 

@@ -39,6 +39,8 @@ ckpt = tf.train.get_checkpoint_state('ckpt-5/') # 通过检查点文件锁定最
 saver = tf.train.import_meta_graph(ckpt.model_checkpoint_path + '.meta')  # 载入图结构，保存在.meta文件中
 saver.restore(sess, ckpt.model_checkpoint_path)
 ```
+
+
 ```tf.train.Saver```函数会返回加载默认图的```saver```对象，```saver```对象初始化时可以指定变量映射方式，根据名字映射变量
 
 下面是最近一个完整的加载过程

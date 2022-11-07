@@ -12,12 +12,14 @@ tags: TensorFlow
 博客迁移，原文链接[TensorFlow模型保存 测试篇](https://blog.csdn.net/ddpiccolo/article/details/89392108)
 
 ### 模型保存——saver
+
 ```python
   model_path='E:/model/kdd/model.ckpt' ##绝对路径
   model_path='scnn_model/model.ckpt'##相对路径
   tf.train.Saver.save(sess,model_path)
   saver=tf.train.Saver()
 ```
+
 ### 调用模型进行预测
 可以先看模型保存了哪些文件
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/imgTensorFlow-model-saver-and-test-.jpg)
@@ -38,7 +40,9 @@ saver = tf.train.import_meta_graph(ckpt.model_checkpoint_path + '.meta')  # 载�
 saver.restore(sess, ckpt.model_checkpoint_path)
 ```
 ```tf.train.Saver```函数会返回加载默认图的```saver```对象，```saver```对象初始化时可以指定变量映射方式，根据名字映射变量
+
 下面是最近一个完整的加载过程
+
 ```python
 # 加载模型
 saver = tf.train.Saver()
@@ -66,19 +70,26 @@ saver = tf.train.Saver()
         print('Size of Test Data Set:   ',m0.shape)
 
 ```
+
 上述过程，调用了模型中```graph```中的```tensor```，注意大小要保持一致
+
 ```python
 xs = graph.get_tensor_by_name("inputs/pic_data:0")#我的命名空间input中有一个名为pic_data的tensor
 ```
+
 如果不知道原图中有哪些```tensor```，可以加载模型后按照下面语句去查看
+
 ```python
 #获得几乎所有的operations相关的tensor
 ops = [o for o in sess.graph.get_operations()]
     for o in ops:
         print(o.name)
 ```
+
 最后奉上
+
 #### **模型的干货加载**
+
 ```python
 # 连同图结构一同加载
 ckpt = tf.train.get_checkpoint_state('./model/')

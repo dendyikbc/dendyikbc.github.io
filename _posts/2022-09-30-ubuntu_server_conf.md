@@ -6,6 +6,7 @@ date: 2022-09-30
 author: Dave
 cover: ''
 tags: Linux
+
 ---
 
 > 因为个人对ubuntu比较熟悉，所以这里选择安装ubuntu_server_22.04 LTS 版本
@@ -14,7 +15,7 @@ tags: Linux
 
 ### 1.1 账户配置
 
-```powershell
+```bash
 vim /etc/hostname # 修改主机名
 
 ## sudo passwd {用户名} 修改密码范式
@@ -51,7 +52,7 @@ sudo usermod -d /data/username username
 
 ```bash
 ## ubuntu_server_20.04 LTS 使用 netplan ⽅式，配置⽂件路径为：/etc/netplan/00-installer-config.yaml 
-
+## 更推荐此方式配置静态地址
 vim /etc/netplan/00-installer-config.yaml
 
 ## 具体内容 
@@ -85,7 +86,7 @@ ifconfig | grep inet
 
 - [清华镜像：Ubuntu 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
 
-```powershell
+```bash
 ## 查看系统信息
 ☁  ~  cat /proc/version
 Linux version 5.15.0-50-generic (buildd@lcy02-amd64-086) (gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #56-Ubuntu SMP Tue Sep 20 13:23:26 UTC 2022
@@ -219,7 +220,7 @@ sudo dpkg -i mysql-*.deb
 
 
 
-```powershell
+```bash
 mysql -V										# mysql版本信息
 netstat -tap | grep mysql   # mysql服务查阅
 
@@ -236,7 +237,7 @@ tcp        0      0 localhost:mysql         0.0.0.0:*               LISTEN      
 
 #### mysql端口开放远程登录
 
-```powershell
+```bash
 ## 配置mysql
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ## 注释掉bind ip 并配置 port = 3306
@@ -285,7 +286,9 @@ Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
 
 ### 1.5 安装jdk
 
-```powershell
+> - [安装maven](https://picc0lo.top/2021/07/09/macForJavaDev-maven.html)
+
+```bash
 sudo apt install openjdk-11-jdk
 sudo apt install openjdk-17-jdk
 ## 切换jdk
@@ -307,9 +310,21 @@ There are 3 choices for the alternative java (providing /usr/bin/java).
   3            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
 ```
 
+### 1.6 安装docker
 
+```bash
+sudo apt-get install docker.io
 
+## 用户加入docker组
+sudo gpasswd -a <user_name> docker 
+newgrp docker
+## 重启docker
+sudo systemctl restart docker
 
+## e.g.
+☁  ~  sudo gpasswd -a dave docker 
+Adding user dave to group docker
+```
 
 
 
@@ -320,8 +335,6 @@ There are 3 choices for the alternative java (providing /usr/bin/java).
 ```
 sudo apt-get update
 sudo apt-get install ruby-full make gcc nodejs build-essential patch
-
-
 ```
 
 
@@ -334,8 +347,8 @@ sudo apt-get install ruby-full make gcc nodejs build-essential patch
 sudo apt install iperf3
 ```
 
-- [iperf-doc](https://iperf.fr/iperf-doc.php)
-- [iperf3使用方法](https://zhuanlan.zhihu.com/p/314727150)
+> - [iperf-doc](https://iperf.fr/iperf-doc.php)
+> - [iperf3使用方法](https://zhuanlan.zhihu.com/p/314727150)
 
 ```bash
 ## iperf3 server start
@@ -344,6 +357,27 @@ iperf3 -s
 iperf3 -u -c 192.168.1.107 -b 100m -t 60
 ## 进行上下行带宽测试（TCP双向传输）
 iperf3 -c 192.168.1.107 -d -t 60
+
+## test 本地perf
+☁  ~  iperf3 -s                                  
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+☁  ~  iperf3 -u -c 127.0.0.1 -b 100000m -t 5  
+Connecting to host 127.0.0.1, port 5201
+[  5] local 127.0.0.1 port 36583 connected to 127.0.0.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  5.59 GBytes  48.1 Gbits/sec  183313  
+[  5]   1.00-2.00   sec  5.64 GBytes  48.5 Gbits/sec  184847  
+[  5]   2.00-3.00   sec  5.69 GBytes  48.9 Gbits/sec  186537  
+[  5]   3.00-4.00   sec  5.67 GBytes  48.7 Gbits/sec  185850  
+[  5]   4.00-5.00   sec  5.68 GBytes  48.8 Gbits/sec  186066  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-5.00   sec  28.3 GBytes  48.6 Gbits/sec  0.000 ms  0/926613 (0%)  sender
+[  5]   0.00-5.00   sec  28.2 GBytes  48.4 Gbits/sec  0.002 ms  3205/926613 (0.35%)  receiver
+
+iperf Done.
 ```
 
 #### speedtest-cli
@@ -351,7 +385,7 @@ iperf3 -c 192.168.1.107 -d -t 60
 ```bash
 sudo apt install speedtest-cli
 
-## 测速测试
+## test
 ☁  ~  speedtest-cli
 Retrieving speedtest.net configuration...
 Testing from China Telecom (222.210.154.238)...

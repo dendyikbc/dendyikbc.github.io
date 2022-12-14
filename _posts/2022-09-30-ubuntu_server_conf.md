@@ -168,6 +168,16 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 plugins=(其他的插件 web-search zsh-syntax-highlighting zsh-autosuggestions)
 ## 主题设置
 cloud
+
+## 主题列表
+ls ~/.oh-my-zsh/themes | while read filename
+do
+echo $filename | cut -d. -f-1
+done
+## 预览所有主题
+cd ~/.oh-my-zsh/tools && zsh ./theme_chooser.sh
+
+## 最好安装 Powerline 字体，许多主题中有很多图标需要显示
 ```
 
 

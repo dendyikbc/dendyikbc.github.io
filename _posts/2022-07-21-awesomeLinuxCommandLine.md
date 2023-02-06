@@ -22,22 +22,22 @@ shutdown -h now		## 即刻关机
 shutdown -h 10		## 10分钟后关机
 shutdown -h 11:00	## 11：00关机
 shutdown -h +10		## 预定时间关机（10分钟后）
-shutdown -c				## 取消指定时间关机
-init 0						## ⽴刻关机
-telinit 0					## 关机
-poweroff					## ⽴刻关机
-halt							## 关机
+shutdown -c		## 取消指定时间关机
+init 0			## ⽴刻关机
+telinit 0		## 关机
+poweroff		## ⽴刻关机
+halt			## 关机
 
 ## 重启
 shutdown -r now		## 重启
 shutdown -r 10		## 10分钟之后重启
 shutdown -r 11:00	## 定时重启
-reboot						## 重启
-init 6						## 重启
+reboot			## 重启
+init 6			## 重启
 
 ## 注销
-logout	## 注销
-sync		## buff数据同步到磁盘
+logout			## 注销
+sync			## buff数据同步到磁盘
 ```
 
 
@@ -49,35 +49,35 @@ sync		## buff数据同步到磁盘
 uname -a					## 查看内核/OS/CPU信息
 uname -r					## 查看内核版本
 uname -m					## 查看处理器架构
-arch							## 查看处理器架构
+arch						## 查看处理器架构
 cat /proc/version	## 查看linux版本信息
 cat /proc/cpuinfo	## 查看CPU信息
-lscpu							## 查看CPU信息
+lscpu			## 查看CPU信息
 cat /etc/*release	## 查看系统信息
 
 ## 设备信息：内存、磁盘、USB设备、PCI设备
-lsusb -tv										## 查看系统USB设备信息
-lspci -tv										## 查看系统PCI设备信息
+lsusb -tv			## 查看系统USB设备信息
+lspci -tv			## 查看系统PCI设备信息
 grep MemTotal /proc/meminfo	## 查看内存总量
 grep MemFree /proc/meminfo	## 查看空闲内存量
-free -m											## 查看内存⽤量和交换区⽤量
+free -m				## 查看内存⽤量和交换区⽤量
 
 ## 系统信息：用户、组、环境变量、时区
-hostname							## 查看计算机名
-users									## 查看系统存在哪些用户
-w											## 查看当前登录系统的⽤户
-who										## 查看当前登录系统的⽤户
-who am i							## 查看登录时的⽤户名
-whoami								## 查看当前⽤户名
-groups								## 查看当前用户所在组
-cat /etc/group				## 查看组文件
-env										## 查看系统的环境变量
-lsmod									## 查看已加载的系统模块
-cat /proc/interrupts	## 查看中断
-cat /proc/loadavg			## 查看系统负载
-uptime								## 查看系统运⾏时间、⽤户数、负载
-date									## 查看系统⽇期时间
-cal 2022							## 显示2022⽇历表
+hostname			## 查看计算机名
+users				## 查看系统存在哪些用户
+w				## 查看当前登录系统的⽤户
+who				## 查看当前登录系统的⽤户
+who am i			## 查看登录时的⽤户名
+whoami				## 查看当前⽤户名
+groups				## 查看当前用户所在组
+cat /etc/group			## 查看组文件
+env				## 查看系统的环境变量
+lsmod				## 查看已加载的系统模块
+cat /proc/interrupts		## 查看中断
+cat /proc/loadavg		## 查看系统负载
+uptime				## 查看系统运⾏时间、⽤户数、负载
+date				## 查看系统⽇期时间
+cal 2022			## 显示2022⽇历表
 ```
 
 
@@ -86,20 +86,20 @@ cal 2022							## 显示2022⽇历表
 
 ```bash
 ## 磁盘分区
-fdisk -l								## 查看所有磁盘分区
-swapon -s								## 查看所有交换分区
-df -h										## 查看磁盘使⽤情况及挂载点
-df -hl									## 同上
-du -sh /dir							## 查看指定某个⽬录的⼤⼩
-du -sk * | sort -rn			## 从⾼到低依次显示⽂件和⽬录⼤⼩
+fdisk -l			## 查看所有磁盘分区
+swapon -s			## 查看所有交换分区
+df -h				## 查看磁盘使⽤情况及挂载点
+df -hl				## 同上
+du -sh /dir			## 查看指定某个⽬录的⼤⼩
+du -sk * | sort -rn		## 从⾼到低依次显示⽂件和⽬录⼤⼩
 
 ## 磁盘挂载/卸载
-mount /dev/hda2 /mnt/hda2							## 挂载hda2盘
+mount /dev/hda2 /mnt/hda2			## 挂载hda2盘
 mount -t ntfs /dev/sdc1 /mnt/usbhd1		## 指定⽂件系统类型挂载（如ntfs）
-mount -o loop xxx.iso /mnt/cdrom			## 挂 载 iso ⽂ 件
-umount -v /dev/sda1										## 通过设备名卸载
-umount -v /mnt/mymnt									## 通过挂载点卸载
-fuser -km /mnt/hda1										## 强制卸载(慎⽤)
+mount -o loop xxx.iso /mnt/cdrom		## 挂 载 iso ⽂ 件
+umount -v /dev/sda1				## 通过设备名卸载
+umount -v /mnt/mymnt				## 通过挂载点卸载
+fuser -km /mnt/hda1				## 强制卸载(慎⽤)
 
 ```
 
@@ -115,9 +115,9 @@ sar -u 1 10	## 查询cpu使⽤情况（1秒⼀次，共10次）
 ## %steal：利用 Xen 等操作系统虚拟化技术，等待其它虚拟 CPU 计算占用的时间比例；
 ## %idle：CPU 空闲时间比例。
 
-iostat	## 查看io读写/cpu使⽤情况
+iostat		## 查看io读写/cpu使⽤情况
 vmstat 1 20	## 每1秒采⼀次系统状态，采20次
-top	## 动态显示cpu/内存/进程等情况
+top		## 动态显示cpu/内存/进程等情况
 ## GPU
 
 ## 磁盘IO
@@ -141,27 +141,27 @@ sar -d 1 10	## 查询磁盘性能
 ## ⽤户和⽤户组
 
 ```bash
-w																												## 查看活动⽤户
-who																											## 查看活动⽤户
-users																										## 存在哪些用户
-useradd	<user_name>																			## 创建⽤户
-userdel -r <user_name>																	## 删除⽤户
-usermod -g <group_name> <user_name>											## 修改⽤户的组
-usermod -aG <group_name> <user_name>										## 将⽤户添加到组
+w				## 查看活动⽤户
+who				## 查看活动⽤户
+users				## 存在哪些用户
+useradd	<user_name>		## 创建⽤户
+userdel -r <user_name>		## 删除⽤户
+usermod -g <group_name> <user_name>			## 修改⽤户的组
+usermod -aG <group_name> <user_name>			## 将⽤户添加到组
 usermod -s /bin/zsh -d /home/dave –g <group_name> dave	## 修改⽤户dave的登录Shell、主⽬录以及⽤户组
-groups																									## 当前用户所在组
-groups Dave																							## 查看⽤户dave所在的组
-groupadd <group_name>																		## 创建⽤户组
-groupdel <group_name>																		## 删除⽤户组
-groupmod -n <new_name> <old_name>												## 重命名⽤户组
-su - <user_name>																				## 切换用户
-passwd																									## 修改当前用户密码
-passwd <user_name>																			## 修改指定⽤户的⼝令
-id <user_name>																					## 查看指定⽤户信息
-last																										## 查看⽤户登录⽇志
-crontab -l																							## 查看当前⽤户的计划任务
-cut -d: -f1 /etc/passwd																	## 查看系统所有⽤户
-cut -d: -f1 /etc/group																	## 查看系统所有组
+groups							## 当前用户所在组
+groups Dave						## 查看⽤户dave所在的组
+groupadd <group_name>					## 创建⽤户组
+groupdel <group_name>					## 删除⽤户组
+groupmod -n <new_name> <old_name>			## 重命名⽤户组
+su - <user_name>					## 切换用户
+passwd							## 修改当前用户密码
+passwd <user_name>					## 修改指定⽤户的⼝令
+id <user_name>						## 查看指定⽤户信息
+last							## 查看⽤户登录⽇志
+crontab -l						## 查看当前⽤户的计划任务
+cut -d: -f1 /etc/passwd					## 查看系统所有⽤户
+cut -d: -f1 /etc/group					## 查看系统所有组
 ```
 
 

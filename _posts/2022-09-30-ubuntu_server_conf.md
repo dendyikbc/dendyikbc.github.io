@@ -350,7 +350,11 @@ sudo apt-get install ruby-full make gcc nodejs build-essential patch
 ### C++ 环境
 [https://apt.llvm.org/](https://apt.llvm.org/)
 #### clang
-添加llvm软件源地址
+- 获取签名
+```bash
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+```
+- 添加llvm软件源地址
 ```bash
 vim /etc/apt/sources.list
 ```

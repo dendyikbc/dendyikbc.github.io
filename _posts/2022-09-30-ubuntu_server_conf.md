@@ -347,8 +347,44 @@ sudo apt-get update
 sudo apt-get install ruby-full make gcc nodejs build-essential patch
 ```
 
+### C++ 环境
+[https://apt.llvm.org/](https://apt.llvm.org/)
+#### clang
+添加llvm软件源地址
+```bash
+vim /etc/apt/sources.list
+```
+- ubuntu 20.04 focal
+```bash
+## ubuntu 20.04 focal
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal main
+# 15
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+# 16
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-16 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-16 main
+```
+- ubuntu 22.04 jammy
+```bash
+## ubuntu 22.04 jammy
+deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
+deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
+# 15
+deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
+deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
+# 16
+deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main
+deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main
+```
 
-
+```bash
+sudo apt update
+sudo apt install clang
+clang -v
+export CC=/usr/bin/clang CXX=/usr/bin/clang++
+```
 ### 工具安装
 
 #### iperf3

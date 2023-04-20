@@ -10,7 +10,7 @@ tags: Linux
 
 > 背景：sudo权限与sudo免密，sudo不想输密码。
 
-## sudo权限配置（修改/etc/sudoers）
+## 方式1.修改/etc/sudoers
 
 > /etc/sudoers
 
@@ -53,7 +53,7 @@ tags: Linux
    sudo cat /etc/shadow
    ```
 
-## sudo visudo[推荐]
+## 方式2.sudo visudo[推荐]
 
 ```bash
 sudo visudo

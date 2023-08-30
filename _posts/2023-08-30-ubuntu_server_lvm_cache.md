@@ -88,8 +88,9 @@ tags: Linux
      Converted lvm_hdd/cache and lvm_hdd/meta to cache pool.
    ## cache-pool enable
    # pattern: lvconvert --type cache --cachepool <VG_Name>/cache --cachemode <cachemode_name> <VG_Name>/<data_lv_name>
-   # 注意：cachemode有writeback和writethrough两种模式，默认为writethrough。
-   # writeback的读写性能会好一些，但是在某些极端情况下会丢失数据（没验证，自行斟酌）。
+   # 注意：cachemode有 writeback 和 writethrough 两种模式，默认为 writethrough。
+   # writeback: 数据先写入缓存再写入磁盘（ASYNC）
+   # writethrough: 写入数据会同步写入缓存和磁盘（SYNC）
      ☁  ~  sudo lvconvert --type cache --cachepool lvm_hdd/cache --cachemode writeback lvm_hdd/hdd 
    Do you want wipe existing metadata of cache pool lvm_hdd/cache? [y/n]: y
      Logical volume lvm_hdd/hdd is now cached.

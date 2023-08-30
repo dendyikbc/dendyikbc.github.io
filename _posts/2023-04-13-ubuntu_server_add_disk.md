@@ -103,6 +103,21 @@ tags: Linux
    ```bash
    # 2.1 清楚分区与分区格式转换
    sudo fdisk /dev/sda
+   
+   # n   add a new partition
+   # e.g. 
+   n   add a new partition
+   Command (m for help): n
+   Partition number (1-128, default 1): 
+   First sector (34-468862094, default 2048): 
+   Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-468862094, default 468862094): 
+   
+   Created a new partition 1 of type 'Linux filesystem' and of size 223.6 GiB.
+   Partition #1 contains a vfat signature.
+   
+   Do you want to remove the signature? [Y]es/[N]o: Y
+   The signature will be removed by a write command.
+   
    # t   change a partition type
    # e.g. 
    t   change a partition type

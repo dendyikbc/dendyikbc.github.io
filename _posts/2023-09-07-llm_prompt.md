@@ -4,7 +4,7 @@ title: 'LLM Prompt'
 subtitle: 'Prompt简明回顾'
 date: 2023-09-07
 author: Dave
-cover: 'https://picc0lo-st.oss-cn-beijing.aliyuncs.com/img/llm/prompt_desc.png'
+cover: ''
 tags: LLM
 ---
 

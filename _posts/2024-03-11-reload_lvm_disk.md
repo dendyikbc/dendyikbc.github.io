@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '记录一次更换系统盘重载lvm数据盘'
-subtitle: ''
+subtitle: '重载lvm + lvm cache'
 date: 2024-03-11
 author: Dave
 cover: ''

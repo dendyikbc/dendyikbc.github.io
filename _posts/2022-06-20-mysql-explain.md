@@ -506,12 +506,11 @@ select * from t_members where oa_account > 'dave1' and born_year != '1999' and p
 从上述trace日志也可以发现，mysql的执行计划过程：`分析器 --> 优化器 --> 执行器`
 
 #### 问题: mysql执行计划存在一个预估访问成本，那么优化器是否会选择不合适的索引或不走索引？
-
-•	扫描行数
+- 扫描行数
 MySQL通过采样统计在执行SQL前获取到一个不那么精确的索引基数，影响到MySQL根据索引基数，来预估使用此索引的扫描行数。
 索引创建，是一个建索引树状存储的过程，但索引删除是标记删除。优化器采用采样评估出现误差的原因也受索引的标记删除影响。
 
-•	回表代价
+- 回表代价
 MySQL对普通索引的检索后若还需要回主键拉取数据，则预估的回表代价也是考虑是否选择这一普通索引的重要原因。
 
 MySQL 内部优化器会根据扫描行、回表次数、临时表使用情况、检索比例、是否排序、表大小等多个因素计算查询成本是否使用索引、使用哪个索引。
@@ -584,9 +583,8 @@ explain select * from t_members where oa_account < 'adele' and born_year > '1999
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/commonQuery/explain-索引_范围查询_列不一定走索引.png)
 
 现象
-•	`oa_account > 'dave1'`  与 `oa_account < 'dave1'` 不走索引
-
-•	`oa_accounte > 'zhorah'` 和 `oa_account < 'adele'`成功走了oa_account的索引
+- `oa_account > 'dave1'`  与 `oa_account < 'dave1'` 不走索引
+- `oa_accounte > 'zhorah'` 和 `oa_account < 'adele'`成功走了oa_account的索引
 
 > 首先, 走不走索引由优化器对当前数据库内数据采样结果进行预估访问成本进行决定，即与数据库的数据分布。
 
@@ -606,8 +604,8 @@ explain select * from t_members where oa_account like 'zhorah%%%' and born_year 
 ![](https://raw.githubusercontent.com/dendyikbc/PicGoBed/master/commonQuery/explain-索引_like查询_列左匹配才走索引.png)
 
 现象
-•	`like 'zhorah%%%' `走索引 且不影响走全匹配联合索引
-•	`like '%%zhorah'` 不走索引
+- `like 'zhorah%%%' `走索引 且不影响走全匹配联合索引
+- `like '%%zhorah'` 不走索引
 like 做模糊时 支持 列前缀匹配，可正常走联合索引
 
 ##### 'in' 'not in'
@@ -623,8 +621,8 @@ explain select * from t_members where oa_account ='dave' and born_year = '1999' 
 
 
 现象
-•	`in ('dave','nora','cathy')` 走索引 且不影响走全匹配联合索引
-•	`not in ('dave','nora','cathy')` 没走索引但not in 不一定走索引 要看预估结果集大小、select内容与索引字段关系等
+- `in ('dave','nora','cathy')` 走索引 且不影响走全匹配联合索引
+- `not in ('dave','nora','cathy')` 没走索引但not in 不一定走索引 要看预估结果集大小、select内容与索引字段关系等
 基本原理，同查询成本，在索引未覆盖情况下，in 结果集较小，mysql预估走索引查询成本更低，而not in 结果集较大时又需要回表查询，优化器判定索引代价过大，不走索引，若结果集较小仍然可走索引，比如`not in ('SDE','SDM')`;。
 
 #####  范围查询汇总
@@ -636,17 +634,17 @@ explain select * from t_members where oa_account ='dave' and born_year = '1999' 
 
 
 不一定走索引
-•	<  （单列在查询代价小时可走单列索引）
-•	>  （同上）
-•	in （通常结果集都较小，其右仍可走完整联合索引）
-•	or
-•	like （左匹配时，其右仍可走完整联合索引）
-•	!= （当前列可走索引，其右侧失效）
-•	not in （预估结果集较小时可走当前列）
-•	not exists 
-•	is not null (当前列不走索引，对应联合索引其左侧列可走)
+- <  （单列在查询代价小时可走单列索引）
+- >  （同上）
+- in （通常结果集都较小，其右仍可走完整联合索引）
+- or
+- like （左匹配时，其右仍可走完整联合索引）
+- != （当前列可走索引，其右侧失效）
+- not in （预估结果集较小时可走当前列）
+- not exists
+- is not null (当前列不走索引，对应联合索引其左侧列可走)
 无法使用索引
-•	is null （整个联合索引会失效）
+- is null （整个联合索引会失效）
 
 ##### limit的使用往往可以“曲线救国“走索引
 

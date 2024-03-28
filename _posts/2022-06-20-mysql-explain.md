@@ -634,8 +634,7 @@ explain select * from t_members where oa_account ='dave' and born_year = '1999' 
 
 
 不一定走索引
-- <  （单列在查询代价小时可走单列索引）
-- >  （同上）
+- </>  （当前列在查询代价小时可走单列索引，其右侧失效）
 - in （通常结果集都较小，其右仍可走完整联合索引）
 - or
 - like （左匹配时，其右仍可走完整联合索引）
@@ -643,6 +642,7 @@ explain select * from t_members where oa_account ='dave' and born_year = '1999' 
 - not in （预估结果集较小时可走当前列）
 - not exists
 - is not null (当前列不走索引，对应联合索引其左侧列可走)
+
 无法使用索引
 - is null （整个联合索引会失效）
 

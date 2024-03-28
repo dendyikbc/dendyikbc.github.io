@@ -584,7 +584,7 @@ explain select * from t_members where oa_account < 'adele' and born_year > '1999
 
 现象
 - `oa_account > 'dave1'`  与 `oa_account < 'dave1'` 不走索引
-- `oa_accounte > 'zhorah'` 和 `oa_account < 'adele'`成功走了oa_account的索引
+- `oa_account > 'zhorah'` 和 `oa_account < 'adele'`成功走了oa_account的索引
 
 > 首先, 走不走索引由优化器对当前数据库内数据采样结果进行预估访问成本进行决定，即与数据库的数据分布。
 
@@ -592,7 +592,7 @@ String 排序是ascall码排序，oa_account < 'dave1'在优化器阶段可以�
 
 oa_account < 'dave1'，当前数据库中存在1w条carl的数据，oa_account > 'dave1'，存在约4w条数据，且此时查询非索引覆盖情况存在回表，因此优化器判定dave1的查询结果集较大，回表成本太大导致mysql预估查询成本不如全表扫描来的快而不走索引，不如全表扫描。
 
-zhorah与adele均不在数据库中，且字典序明显oa_accounte > 'zhorah' 和 oa_account < 'adele'查询的结果集较小，mysql判断走索引的查询成本更低，而dave的查询结果集较大，回表成本太大导致mysql预估查询成本不如全表扫描来的快而不走索引。
+zhorah与adele均不在数据库中，且字典序明显oa_account > 'zhorah' 和 oa_account < 'adele'查询的结果集较小，mysql判断走索引的查询成本更低，而dave的查询结果集较大，回表成本太大导致mysql预估查询成本不如全表扫描来的快而不走索引。
 
 ##### 'like'
 
@@ -763,7 +763,7 @@ select * from A where exists (select 1 from B where B.id = A.id)  -- 使用了b�
 
   > 有别于前文的not in，这里的not in(subquery) ，subquery为需要执行的子查询；前文探讨的not in(set)，set为固定集合，内部优化器可根据索引页采样进行估算代价进而决定是否选择索引。
 
-- not extsts 的子查询依然能用到表上的索引；
+- not exists 的子查询依然能用到表上的索引；
 
 ```sql
 -- t_members_myisam与t_members数据结构一致，为myisam引擎，仅存放一条数据。

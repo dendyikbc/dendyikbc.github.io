@@ -23,7 +23,7 @@ tags: LLM
 
 #### Parser Router
 
-1. Rule-based Parser Router
+1.Rule-based Parser Router
 
 > 典型的一种就是，洗数据阶段基于文件类型制定不同的parser及splitter去切chunk，以更好地保证提取文本的有效性。
 
@@ -35,7 +35,7 @@ tags: LLM
 
 ![](https://picc0lo-st.oss-cn-beijing.aliyuncs.com/img/parser_splitter_index_route_detail.png)
 
-2. Model-based Parser
+2.Model-based Parser
 
    特别地，部分业务场景中的存在复杂文件，以pdf为例，往往真实业务场景中存在pdf扫描件，难以直接解析获取比较好的效果，此时可增加业务判断链路去基于模型做pdf解析。
 
@@ -52,7 +52,7 @@ tags: LLM
 
 
 
-3. LLM Parser
+3.LLM Parser
 
    多模态大模型，可以支持文件形式解析并给出结构化数据返回；也可以对文档进行按页切分后进行OCR识别后，文本丢给大模型进行问答查询。
    

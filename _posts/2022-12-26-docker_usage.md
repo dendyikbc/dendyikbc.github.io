@@ -232,13 +232,16 @@ docker run -itd --name=container_name ubuntu:latest /bin/bash
 #-i 交互式操作
 #-t 终端
 #-d 后台运行
+## -p 端口映射 宿主机port:容器内port
 docker run -itd -p 8888:8888 -p 8890:8890 ubuntu /bin/bash
 docker run -itd -p 8888-8890:8888-8890 ubuntu /bin/bash
 
 ## 文件映射 -v <host_path>:<container_path>
 ## host网络
 ## 特权容器
-## -w
+## -v 宿主机路径:容器内路径
+## -w 进入容器的路径
+
 docker run -itd --net=host --privileged=true --name=ubuntu_dev --rm -v /data/piccolo/docker_swap:/home/swap -w /home/swap ubuntu:20.04 /bin/bash
 
 ## --rm 前台容器退出时清理数据，不能与 -d 同时使用（或者说同时使用没有意义）

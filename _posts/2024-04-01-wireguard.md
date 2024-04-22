@@ -1,12 +1,13 @@
 ---
 layout: post
-title: 'WireGuard组网
+title: 'WireGuard组网'
 subtitle: '异地组网'
 date: 2024-04-01
 author: Dave
 cover: ''
 tags: 网络
 ---
+
 
 > 很多办公环境无ipv6环境，不方便连接家里的开发机。
 >

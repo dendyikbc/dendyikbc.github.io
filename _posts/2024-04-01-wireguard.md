@@ -194,7 +194,11 @@ sudo ufw allow 888
 
 ***注意：如果server是云服务器，务必记得进入安全组 新增规则开放端口。***
 
+### 6.开机自启
 
+```bash
+sudo wg-autostart enable wg0
+```
 
 ## 客户端配置
 
@@ -256,8 +260,11 @@ peer: {...context...}
   latest handshake: 1 hour, 30 seconds ago
   transfer: 12.52 KiB received, 16.48 KiB sent
 ```
+3.开机自启
 
-
+```bash
+sudo wg-autostart enable client
+```
 
 ## 连通性测试
 

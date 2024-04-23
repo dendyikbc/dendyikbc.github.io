@@ -36,12 +36,13 @@ opkg install wireguard
 
 ## 服务端配置
 
-> 云服务器: 阿里云轻量ECS 2C2G 3M带宽
+> 云服务器: 阿里云轻量ECS 2C2G 3M带宽;
+> 写的脚本这里识别cpu参数这里 被阿里云内部給屏蔽掉了 识别有问题 物理机上是ok的
 
 ```bash
 ➜  ~ sys_info
 whoami  : root
-hostname: iZwz9gj3make0gnwhvf7bqZ
+hostname: xxxxx......
 work_dir: /home/dave/
 date: Tue Apr 01 23:13:28 AM CST 2024
 ================================================================

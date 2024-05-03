@@ -260,10 +260,12 @@ peer: {...context...}
 ```
 3.开机自启
 > 使用 systemd 来管理 WireGuard 服务
+
 3.1 创建 systemd 服务单元文件
 ```bash
 vim /etc/systemd/system/wireguard.service
 ```
+
 填充内容
 ```toml
 [Unit]

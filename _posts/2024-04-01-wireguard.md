@@ -197,9 +197,6 @@ sudo ufw allow 888
 
 ### 6.开机自启
 
-```bash
-sudo wg-autostart enable wg0
-```
 
 ## 客户端配置
 
@@ -262,9 +259,32 @@ peer: {...context...}
   transfer: 12.52 KiB received, 16.48 KiB sent
 ```
 3.开机自启
-
+> 使用 systemd 来管理 WireGuard 服务
+3.1 创建 systemd 服务单元文件
 ```bash
-sudo wg-autostart enable client
+vim /etc/systemd/system/wireguard.service
+```
+填充内容
+```toml
+[Unit]
+Description=WireGuard VPN service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/wg-quick up client
+ExecStop=/usr/bin/wg-quick down client
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+3.2 启用 systemd 服务
+```bash
+sudo systemctl enable wireguard.service
+## 示例
+☁  ~  sudo systemctl enable wireguard.service
+Created symlink /etc/systemd/system/multi-user.target.wants/wireguard.service → /etc/systemd/system/wireguard.service.
 ```
 
 ## 连通性测试
